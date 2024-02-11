@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>Semantify3D</title>
+    <link href="https://botbreeder.github.io/feed.xml" rel="self" />
+    <link href="https://botbreeder.github.io" />
+    <updated>2024-02-11T17:04:07+01:00</updated>
+    <author>
+        <name>Julien Laguerre</name>
+    </author>
+    <id>https://botbreeder.github.io</id>
+
+    <entry>
+        <title>Here we go</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/here-we-go.html"/>
+        <id>https://botbreeder.github.io/here-we-go.html</id>
+
+        <updated>2024-02-11T17:04:07+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Everything has to start somewhere.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Everything has to start somewhere.</p>
+            ]]>
+        </content>
+    </entry>
+</feed>

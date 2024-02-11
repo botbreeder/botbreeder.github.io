@@ -1,0 +1,27 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Semantify3D",
+    "description": "",
+    "home_page_url": "https://botbreeder.github.io",
+    "feed_url": "https://botbreeder.github.io/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Julien Laguerre"
+    },
+    "items": [
+        {
+            "id": "https://botbreeder.github.io/here-we-go.html",
+            "url": "https://botbreeder.github.io/here-we-go.html",
+            "title": "Here we go",
+            "summary": "Everything has to start somewhere.",
+            "content_html": "<p>Everything has to start somewhere.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-02-11T17:04:07+01:00",
+            "date_modified": "2024-02-11T17:04:07+01:00"
+        }
+    ]
+}
