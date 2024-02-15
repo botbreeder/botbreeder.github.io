@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://botbreeder.github.io/interface.html",
+            "url": "https://botbreeder.github.io/interface.html",
+            "title": "Interface",
+            "summary": "Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of Semantify3D. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to. When I&hellip;",
+            "content_html": "<p>Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of Semantify3D. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to.</p>\n<p>When I work with complex softwares, I always struggle with the UI to find what I need, because the controls are scattered all around the central area, and often hidden behind menus or dropdowns. Here, I decided to put every control in a panel on the left-hand side of the screen, because I find it easier to merely scroll until I get what I'm looking for.</p>\n<p>Then the main area is occupied by workspaces, ready to receive code editors, graphs or 3D visualizers, editable markdown viewers, ...etc. There again, the user just have to scroll in order to reach them.</p>\n<p>My idea is that of a Jupyter style notebook, but in the shape of an outliner. An outliner is basically a recursively folding container, and I don't have that implemented yet. It might be my next move.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-02-15T16:51:04+01:00",
+            "date_modified": "2024-02-15T16:58:18+01:00"
+        },
+        {
             "id": "https://botbreeder.github.io/here-we-go.html",
             "url": "https://botbreeder.github.io/here-we-go.html",
             "title": "Here we go",
