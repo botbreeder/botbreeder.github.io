@@ -3,12 +3,35 @@
     <title>Semantify3D</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-02-15T16:58:18+01:00</updated>
+    <updated>2024-02-19T10:00:44+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Cmdline &amp; toolbar</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/cmdline-and-toolbar.html"/>
+        <id>https://botbreeder.github.io/cmdline-and-toolbar.html</id>
+
+        <updated>2024-02-19T10:00:44+01:00</updated>
+            <summary>
+                <![CDATA[
+                    I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously. I've added a small command line at the&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously.</p>
+<p>I've added a small command line at the bottom of the screen for power users (e.g., me). Everything should be doable from UI elements alone, and from the command line alone. It should also be possible to create custom commands. Hitting the spacebar gives you instant focus on the command line, and you're ready to type in.</p>
+<p>Finally, there's now a toolbar at the top of the screen. It's meant to provide quick access to different toolboxes in the left-hand side panel. I thought it would be handy to always have it on screen.</p>
+<p>For both the command line and the toolbar, I used the excellent css library <a href="http://augmented-ui.com/" target="_blank" rel="noopener noreferrer">augmented-ui</a> to get those nice diagonal shapes. All in all, the entire thing doesn't look as futuristic as I was planning, but it's still easy on the eye so, I'm satisfied.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Interface</title>
         <author>
