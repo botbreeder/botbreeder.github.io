@@ -3,21 +3,21 @@
     <title>Semantify3D</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-03T21:29:37+01:00</updated>
+    <updated>2024-03-03T23:06:37+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
     <entry>
-        <title>Bare metal</title>
+        <title>Metal</title>
         <author>
             <name>Julien Laguerre</name>
         </author>
         <link href="https://botbreeder.github.io/metal.html"/>
         <id>https://botbreeder.github.io/metal.html</id>
 
-        <updated>2024-03-03T21:29:37+01:00</updated>
+        <updated>2024-03-03T23:06:37+01:00</updated>
             <summary>
                 <![CDATA[
                     Perhaps I lost momentum, being so obsessed with the UI over the past few weeks. And the other day when I saw Openai's Sora, I told my friend "it kind of defeats the point of doing what I'm working on." Now that I swallowed it,&hellip;
@@ -28,7 +28,7 @@
                 <p>Perhaps I lost momentum, being so obsessed with the UI over the past few weeks. And the other day when I saw Openai's Sora, I told my friend "it kind of defeats the point of doing what I'm working on." Now that I swallowed it, my ideas are clearer. No, not at all.</p>
 <p>What I do is <em>semantics</em>, <em>understanding</em>. It reaches from a declared 3D scene all the way down to actual grounded understanding of a situation. And that is something.</p>
 <p>The Semantify3D project is about about making meaning - not colours, or sounds, but meaning itself - live and deployed in a 3D space, in time.</p>
-<p>I'm now using <a href="https://wails.io/" target="_blank" rel="noopener noreferrer">Wails</a>, from Lea Anthony. It basically offers a fast &amp; clean Golang backend, behind a familiar and comfortably beautiful HTML/CSS/JS frontend. I'm working on a side-project that's ideal for getting acquainted with that tool, a 3D version of Nine Men's Morris I've been working on for some years. I'll post a link if I ever get satisfied with it.<a href="https://wails.io/" target="_blank" rel="noopener noreferrer"></a></p>
+<p>I'm now using <a href="https://wails.io/" target="_blank" rel="noopener noreferrer">Wails</a>, from Lea Anthony. It basically offers a fast &amp; clean Golang backend, behind a familiar and comfortably beautiful HTML/CSS/JS frontend. I'm working on a side-project that's ideal for getting acquainted with that tool, a 3D version of Nine Men's Morris. I'll post a link if I finish it.<a href="https://wails.io/" target="_blank" rel="noopener noreferrer"></a></p>
             ]]>
         </content>
     </entry>
