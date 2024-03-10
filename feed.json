@@ -1,6 +1,6 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "Semantify3D",
+    "title": "Botbreeder",
     "description": "",
     "home_page_url": "https://botbreeder.github.io",
     "feed_url": "https://botbreeder.github.io/feed.json",
@@ -9,20 +9,6 @@
         "name": "Julien Laguerre"
     },
     "items": [
-        {
-            "id": "https://botbreeder.github.io/metal.html",
-            "url": "https://botbreeder.github.io/metal.html",
-            "title": "Metal",
-            "summary": "Perhaps I lost momentum, being so obsessed with the UI over the past few weeks. And the other day when I saw Openai's Sora, I told my friend \"it kind of defeats the point of doing what I'm working on.\" Now that I swallowed it,&hellip;",
-            "content_html": "<p>Perhaps I lost momentum, being so obsessed with the UI over the past few weeks. And the other day when I saw Openai's Sora, I told my friend \"it kind of defeats the point of doing what I'm working on.\" Now that I swallowed it, my ideas are clearer. No, not at all.</p>\n<p>What I do is <em>semantics</em>, <em>understanding</em>. It reaches from a declared 3D scene all the way down to actual grounded understanding of a situation. And that is something.</p>\n<p>The Semantify3D project is about about making meaning - not colours, or sounds, but meaning itself - live and deployed in a 3D space, in time.</p>\n<p>I'm now using <a href=\"https://wails.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Wails</a>, from Lea Anthony. It basically offers a fast &amp; clean Golang backend, behind a familiar and comfortably beautiful HTML/CSS/JS frontend. I'm working on a side-project that's ideal for getting acquainted with that tool, a 3D version of Nine Men's Morris. I'll post a link if I finish it.<a href=\"https://wails.io/\" target=\"_blank\" rel=\"noopener noreferrer\"></a></p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-03-03T21:17:02+01:00",
-            "date_modified": "2024-03-03T23:06:37+01:00"
-        },
         {
             "id": "https://botbreeder.github.io/cmdline-and-toolbar.html",
             "url": "https://botbreeder.github.io/cmdline-and-toolbar.html",
