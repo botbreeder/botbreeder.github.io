@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
-    <title>Botbreeder</title>
+    <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T01:46:52+01:00</updated>
+    <updated>2024-03-11T02:10:36+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T01:46:52+01:00</updated>
+        <updated>2024-03-11T02:10:36+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
@@ -35,7 +35,7 @@
 <pre><code>1 2 3 + 1 * 2</code></pre>
 <p>Here, 1 is first added to each item of the <code>1 2 3</code> stack, and then each item of the resulting stack is doubled, which results in:</p>
 <pre><code>4 6 8</code></pre>
-<p>Now this is a function call. The name of the function is "a", and it has 2 arguments "b" and "c".</p>
+<p>Now this is a function call. The name of the function is "<code>a</code>", and it has 2 arguments "<code>b</code>" and "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
 <p>When an expression is given as argument to a function, the expression is first resolved before the function gets called on the resulting stack.</p>
 <pre><code>f(1 2 3 + 1 * 2)</code></pre>
