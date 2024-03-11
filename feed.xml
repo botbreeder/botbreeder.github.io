@@ -3,21 +3,21 @@
     <title>Botbreeder</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T00:51:07+01:00</updated>
+    <updated>2024-03-11T01:01:32+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
     <entry>
-        <title>Hup</title>
+        <title>The Hup scripting language</title>
         <author>
             <name>Julien Laguerre</name>
         </author>
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T00:51:07+01:00</updated>
+        <updated>2024-03-11T01:01:32+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
@@ -33,7 +33,7 @@
 <pre><code>2 3 4</code></pre>
 <p>There is no operator precedence. Instead, an expression is read from left to right. Values are pushed on an operand stack. Operators are applied to the operand stack, resulting in a new stack.</p>
 <pre><code>1 2 3 + 1 * 2</code></pre>
-<p>Here, 1 is first added to each item of the <code>1 2 3</code> stack, and then each item of the resulting stack <code>2 3 4</code> is doubled, which results in:</p>
+<p>Here, 1 is first added to each item of the <code>1 2 3</code> stack, and then each item of the resulting stack is doubled, which results in:</p>
 <pre><code>4 6 8</code></pre>
 <p>Now this is a function call. The name of the function is "a", and it has 2 arguments "b" and "c".</p>
 <pre><code>a(b c)</code></pre>
@@ -43,7 +43,7 @@
 <pre><code>f(4 6 8)</code></pre>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
-<p>A table may have a name, a formula, and values obtained by executing the formula, always in that order. The formula is preceded by <code>=</code> and each value is preceded by <code>|</code>.</p>
+<p>A table may have a name, a formula, and values obtained by executing the formula, always in that order. The formula is preceded by equal <code>=</code> and each value is preceded by vertival bar<code>|</code>.</p>
 <pre><code>[ example = 1 2 3 + 1 * 2 | 4 | 6 | 8 ]</code></pre>
 <p>White space is irrelevant.</p>
 <pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>
