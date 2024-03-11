@@ -3,7 +3,7 @@
     <title>Botbreeder</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T01:16:31+01:00</updated>
+    <updated>2024-03-11T01:19:27+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T01:16:31+01:00</updated>
+        <updated>2024-03-11T01:19:27+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
@@ -49,11 +49,9 @@
 <pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>
 <p>The formula is optional. A table without formula is a constant table.</p>
 <pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>
-<p>The formula of a table can reference the values of other tables. The named of the referenced tables are then put between square brackets.</p>
+<p>The formula of a table can reference the values of other tables. The name of the referenced tables are then put between square brackets.</p>
 <pre>[<br>    example<br>    = [some numbers] + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</pre>
-<p>When the values of a referenced table change, the values of referencing tables are recalculated to reflect the changes.</p>
-<p><code></code></p>
-<p><code></code></p>
+<p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes.</p>
             ]]>
         </content>
     </entry>
