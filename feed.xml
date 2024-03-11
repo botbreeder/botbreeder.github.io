@@ -3,7 +3,7 @@
     <title>Botbreeder</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T01:38:51+01:00</updated>
+    <updated>2024-03-11T01:46:52+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T01:38:51+01:00</updated>
+        <updated>2024-03-11T01:46:52+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
@@ -52,7 +52,7 @@
 <p>The formula of a table can reference the values of other tables. The name of the referenced tables are then put between square brackets.</p>
 <pre>[<br>    example<br>    = [some numbers] + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</pre>
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> changes to <code>10 20 30</code>, then <code>[example]</code> will automatically change too.</p>
-<pre>[ some numbers | 10 | 20 | 30 ]<br>[ example = [some numbers] + 1 * 2 | 11 | 22 | 33 ]</pre>
+<pre>[ some numbers | 10 | 20 | 30 ]<br>[<br>    example = [some numbers] + 1 * 2<br>    | 22<br>    | 42<br>    | 62<br>]</pre>
 <p>It is thus an event driven system.</p>
             ]]>
         </content>
