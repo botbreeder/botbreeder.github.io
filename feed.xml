@@ -3,7 +3,7 @@
     <title>Botbreeder</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T01:01:32+01:00</updated>
+    <updated>2024-03-11T01:16:31+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T01:01:32+01:00</updated>
+        <updated>2024-03-11T01:16:31+01:00</updated>
             <summary>
                 <![CDATA[
                     This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
@@ -43,11 +43,16 @@
 <pre><code>f(4 6 8)</code></pre>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
-<p>A table may have a name, a formula, and values obtained by executing the formula, always in that order. The formula is preceded by equal <code>=</code> and each value is preceded by vertival bar<code>|</code>.</p>
+<p>A table may have a name, a formula, and values obtained by executing the formula, always in that order. The formula is preceded by equal "<code>=</code>" and each value is preceded by vertival bar "<code>|</code>".</p>
 <pre><code>[ example = 1 2 3 + 1 * 2 | 4 | 6 | 8 ]</code></pre>
 <p>White space is irrelevant.</p>
 <pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>
-<p> </p>
+<p>The formula is optional. A table without formula is a constant table.</p>
+<pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>
+<p>The formula of a table can reference the values of other tables. The named of the referenced tables are then put between square brackets.</p>
+<pre>[<br>    example<br>    = [some numbers] + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</pre>
+<p>When the values of a referenced table change, the values of referencing tables are recalculated to reflect the changes.</p>
+<p><code></code></p>
 <p><code></code></p>
             ]]>
         </content>
