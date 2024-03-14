@@ -3,57 +3,97 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-11T02:10:36+01:00</updated>
+    <updated>2024-03-14T20:10:58+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
     <entry>
-        <title>The Hup scripting language</title>
+        <title>Hup, a few operators</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/hup-operators.html"/>
+        <id>https://botbreeder.github.io/hup-operators.html</id>
+
+        <updated>2024-03-14T10:04:13+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Arithmetic operators are as you'd expect them: add with "+", subtract with "-", multiply with "*", divide with "/". If a stack is preceded by the Shaped operator "$", its length will be modified to fit the length of other operands. If it's too long,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Arithmetic operators are as you'd expect them: add with "<code>+</code>", subtract with "<code>-</code>", multiply with "<code>*</code>", divide with "<code>/</code>".</p>
+<p>If a stack is preceded by the Shaped operator "<code>$</code>", its length will be modified to fit the length of other operands. If it's too long, it gets truncated. If it's too short, it wraps around.</p>
+<pre><code>[ tens<br>    | 10<br>    | 20<br>    | 30<br>    | 40<br>    | 50<br>    | 60<br>    | 70<br>    | 80<br>]<br><br>[ units<br>    | 1<br>    | 2<br>    | 3<br>]<br><br>[ units wrapping around<br>    = [tens] + $[units]<br>    | 11<br>    | 22<br>    | 33<br>    | 41<br>    | 52<br>    | 63<br>    | 71<br>    | 82<br>]</code></pre>
+<p>Boolean operators are: Greater than "<code>&gt;</code>", Less than "<code>&lt;</code>", Greater than or equal "<code>&gt;=</code>", Less than or equal "<code>&lt;=</code>", Equal "<code>==</code>", Different "<code>&lt;&gt;</code>".</p>
+<p>There's also And "<code>&amp;&amp;</code>", Or "<code>||</code>", Not "<code>!</code>".</p>
+<p>They return <code>1</code> if true, and <code>0</code> if false.</p>
+<pre><code>[ units greater than one</code><br><code>    = [units] &gt; 1</code><br><code>    | 0</code><br><code>    | 1</code><br><code>    | 1</code><br><code>]</code></pre>
+<p>There is a Copy operator "<code>&amp;</code>". It will repeat the items of a stack a certain number of times, possibly zero times.</p>
+<pre><code>[ handpicked tens<br>    = [tens] &amp; 0 0 2 0 1 0 0 0<br>    | 30<br>    | 30<br>    | 50<br>]</code></pre>
+<p>When copying zero times, it acts as a filter. It can be used in conjuction with boolean operators.</p>
+<pre><code>[ keep tens greater than thirty</code><br><code>    = [tens] &amp; [tens] &gt; 30</code><br><code>    | 40</code><br><code>    | 50</code><br><code>    | 60</code><br><code>    | 70</code><br><code>    | 80</code><br><code>]</code></pre>
+<p>To check whether certain items can be found in a stack and count them, the Count operator "<code>€</code>" can be used.</p>
+<pre><code>[ counting</code><br><code>    = [tens] € 10 10 20 30 50 80</code><br><code>    | 2</code><br><code>    | 1</code><br><code>    | 1</code><br><code>    | 0</code><br><code>    | 1</code><br><code>    | 0</code><br><code>    | 0</code><br><code>    | 1</code><br><code>]</code></pre>
+<p>The Fetch operator "<code>@</code>" references items in a stack.</p>
+<pre><code>[ third and fourth from tens</code><br><code>    = [tens] @ 2 3</code><br><code>    | 30</code><br><code>    | 40</code><br><code>]</code></pre>
+<p>The other way around, the Index operator "<code>\</code>" finds items in a stack.</p>
+<pre><br><code>[ in tens the indices of thirty and forty</code><br><code>    = 30 40 \ [tens]</code><br><code>    | 2</code><br><code>    | 3</code><br><code>]</code></pre>
+<p>There's no need for a ternary if operator: <code>@</code> can act as a switch, because boolean operators return <code>1</code> or <code>0</code>.</p>
+<pre><code>[ greater than thirty</code><br><code>    = 500 1000 @ [tens] &gt; 30</code><br><code>    | 500</code><br><code>    | 500</code><br><code></code><code>    | 500<br>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>]</code></pre>
+<p>wip</p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Hup, a scripting language</title>
         <author>
             <name>Julien Laguerre</name>
         </author>
         <link href="https://botbreeder.github.io/hup.html"/>
         <id>https://botbreeder.github.io/hup.html</id>
 
-        <updated>2024-03-11T02:10:36+01:00</updated>
+        <updated>2024-03-11T00:51:07+01:00</updated>
             <summary>
                 <![CDATA[
-                    This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, an expression is&hellip;
+                    This is a stack. 1 2 3 And this is how you add 2 to each item of this stack. 1 2 3 + 2 The result of this expression is another stack. 3 4 5 There is no operator precedence. Instead, an expression reads&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                 <p>This is a stack.</p>
 <pre><code>1 2 3</code></pre>
-<p>And this is how you add 1 to each item of this stack.</p>
-<pre><code>1 2 3 + 1</code></pre>
+<p>And this is how you add 2 to each item of this stack.</p>
+<pre><code>1 2 3 + 2</code></pre>
 <p>The result of this expression is another stack.</p>
-<pre><code>2 3 4</code></pre>
-<p>There is no operator precedence. Instead, an expression is read from left to right. Values are pushed on an operand stack. Operators are applied to the operand stack, resulting in a new stack.</p>
-<pre><code>1 2 3 + 1 * 2</code></pre>
-<p>Here, 1 is first added to each item of the <code>1 2 3</code> stack, and then each item of the resulting stack is doubled, which results in:</p>
-<pre><code>4 6 8</code></pre>
-<p>Now this is a function call. The name of the function is "<code>a</code>", and it has 2 arguments "<code>b</code>" and "<code>c</code>".</p>
+<pre><code>3 4 5</code></pre>
+<p>There is no operator precedence. Instead, an expression reads from left to right.</p>
+<pre><code>1 2 3 + 2 * 3</code></pre>
+<p>This expression means <code>1 2 3</code> added to whatever follows, namely <code>2 * 3</code>, which results in:</p>
+<pre><code>7 8 9</code></pre>
+<p>Now this is a term. Its functor is the atom "<code>a</code>", and it has 2 arguments: the atom "<code>b</code>" and the atom "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
-<p>When an expression is given as argument to a function, the expression is first resolved before the function gets called on the resulting stack.</p>
-<pre><code>f(1 2 3 + 1 * 2)</code></pre>
+<p>When an expression is given in a term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
+<pre><code>f(1 2 3 + 2 * 3)</code></pre>
 <p>This is equivalent to:</p>
-<pre><code>f(4 6 8)</code></pre>
+<pre><code>f(7 8 9)</code></pre>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
-<p>A table may have a name, a formula, and values obtained by executing the formula, always in that order. The formula is preceded by equal "<code>=</code>" and each value is preceded by a vertival bar "<code>|</code>".</p>
-<pre><code>[ example = 1 2 3 + 1 * 2 | 4 | 6 | 8 ]</code></pre>
+<p>A table may have a name, a formula, and values obtained by evaluating the formula. The formula is preceded by equal "<code>=</code>" and each value is preceded by a vertival bar "<code>|</code>".</p>
+<pre><code>[ example = 1 2 3 + 2 * 3 | 7 | 8 | 9 ]</code></pre>
 <p>White space is irrelevant.</p>
-<pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>
+<pre><code>[<br>    example<br>    = 1 2 3 + 2 * 3<br>    | 7<br>    | 8<br>    | 9<br>]</code></pre>
 <p>The formula is optional. A table without formula is a constant table.</p>
 <pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>
-<p>The formula of a table can reference the values of other tables. The name of the referenced tables are then put between square brackets.</p>
-<pre>[<br>    example<br>    = [some numbers] + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</pre>
+<p>The formula of a table can reference the values of other tables. The name of the referenced tables are put between square brackets.</p>
+<pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 2 * 3</code><br><code>    | 7</code><br><code>    | 8</code><br><code>    | 9</code><br><code>]</code></pre>
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> changes to <code>10 20 30</code>, then <code>[example]</code> will automatically change too.</p>
-<pre>[ some numbers | 10 | 20 | 30 ]<br>[<br>    example = [some numbers] + 1 * 2<br>    | 22<br>    | 42<br>    | 62<br>]</pre>
-<p>It is thus an event driven system.</p>
+<pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 2 * 3</code><br><code>    | 16</code><br><code>    | 26</code><br><code>    | 36</code><br><code>]</code></pre>
+<p>Thus it is an event driven system.</p>
             ]]>
         </content>
     </entry>
@@ -65,7 +105,7 @@
         <link href="https://botbreeder.github.io/cmdline-and-toolbar.html"/>
         <id>https://botbreeder.github.io/cmdline-and-toolbar.html</id>
 
-        <updated>2024-02-19T10:00:44+01:00</updated>
+        <updated>2024-02-19T09:55:05+01:00</updated>
             <summary>
                 <![CDATA[
                     I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously. I've added a small command line at the&hellip;
@@ -88,7 +128,7 @@
         <link href="https://botbreeder.github.io/interface.html"/>
         <id>https://botbreeder.github.io/interface.html</id>
 
-        <updated>2024-02-15T16:58:18+01:00</updated>
+        <updated>2024-02-15T16:51:04+01:00</updated>
             <summary>
                 <![CDATA[
                     Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of Semantify3D. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to. When I&hellip;
