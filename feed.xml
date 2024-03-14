@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-15T00:08:25+01:00</updated>
+    <updated>2024-03-15T00:19:44+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -50,7 +50,7 @@
 <pre><code>[ A | 100 | 200 | 300 | 400 ]</code><br><code>[ B | 500 | 600 | 700 | 800 ]</code><br><br><code>[<br>    what's to B what 200 and 300 are to A </code><br><code>    = [B] @ 200 300 ? [A]</code><br><code>    | 600</code><br><code>    | 700</code><br><code>]</code></pre>
 <p>There's no need for a ternary if operator. In fact <code>@</code> can act as a switch, because Boolean operators return <code>0</code> or <code>1</code>.</p>
 <pre><code>[<br>    a thousand when true</code><br><code>    = 500 1000 @ [tens] &gt; 30</code><br><code>    | 500</code><br><code>    | 500</code><br><code></code><code>    | 500<br>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>]</code></pre>
-<p>A formula can begin with an update delay, expressed in milliseconds, followed either by a comma (delay after first change) or a semi-colon (delay after last change).</p>
+<p>Finally, a formula can begin with an update delay, expressed in milliseconds, followed either by a comma "<code>,</code>" (delay after first change) or a semi-colon "<code>;</code>" (delay after last change). These two are not really operators, rather directives.</p>
 <pre><code>[<br>    jumpy</code><br><code>    = 50, [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code><br><br><code>[<br>    patient</code><br><code>    = 2000; [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code></pre>
 <p>The jumpy table will plan an update 50ms after a change, unless an update is already planned. The patient table will plan an update 2 seconds after a change, cancelling any previously planned update.</p>
 <p>The default is, immediate update.</p>
@@ -140,12 +140,12 @@
         <updated>2024-02-15T16:51:04+01:00</updated>
             <summary>
                 <![CDATA[
-                    Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of Semantify3D. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to. When I&hellip;
+                    Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of Semantify3D. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to.</p>
+                <p>Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to.</p>
 <p>When I work with complex software, I always struggle with the UI to find what I need, because the controls are scattered all around the central area, and often hidden behind menus or dropdowns. Here, I decided to put every control in a panel on the left-hand side of the screen, because I find it easier to merely scroll until I get what I'm looking for.</p>
 <p>Then the main area is occupied by workspaces, ready to receive code editors, graphs or 3D visualizers, editable markdown viewers, etc. There again, the user just have to scroll in order to reach them.</p>
 <p>My idea is that of a Jupyter style notebook, but in the shape of an outliner. An outliner is basically a recursively folding container, and I don't have that implemented yet. It might be my next move.</p>
