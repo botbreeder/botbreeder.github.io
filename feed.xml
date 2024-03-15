@@ -3,14 +3,14 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-15T15:08:41+01:00</updated>
+    <updated>2024-03-15T16:27:21+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
     <entry>
-        <title>Hup, working with terms</title>
+        <title>Hup, other than numbers</title>
         <author>
             <name>Julien Laguerre</name>
         </author>
@@ -20,12 +20,12 @@
         <updated>2024-03-15T13:00:46+01:00</updated>
             <summary>
                 <![CDATA[
-                    Hup can not only handle numbers, but also deal with terms. Intuitively, a term is a piece of meaning. [ family | man( Pedro ) | woman( Alma ) | woman( Pepa ) | woman( Julieta ) | man( Bruno ) ] There's an Extract&hellip;
+                    Hup can not only handle numbers, but also deal with other kinds of terms: atoms, compound terms, and even embedded tables. Intuitively, a term is any piece of meaning. [ family | man( Pedro ) | woman( Alma ) | woman( Pepa ) | woman(&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Hup can not only handle numbers, but also deal with terms. Intuitively, a term is a piece of meaning.</p>
+                <p>Hup can not only handle numbers, but also deal with other kinds of terms: atoms, compound terms, and even embedded tables. Intuitively, a term is any piece of meaning.</p>
 <pre><code>[</code><br><code>    family</code><br><code>    | man( Pedro )</code><br><code>    | woman( Alma )</code><br><code>    | woman( Pepa )</code><br><code>    | woman( Julieta )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
 <p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with the monadic "<code>#</code>" operator. These tags capture values during the pattern matching process.</p>
 <pre><code>[</code><br><code>    men only</code><br><code>    = [family] % man( #name )</code><br><code>    | man( Pedro )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
@@ -36,7 +36,9 @@
 <p>We can filter with the "<code>&amp;</code>" operator.</p>
 <pre><code>[<br>    older than 50<br>    = [detailed family]<br>        % #genre( #name age( #age ) ) &amp;( #age &gt; 50 )<br>        : #name( #genre #age years old )<br>    | Pedro( man 66 years old )<br>    | Alma( woman 62 years old )<br>]<br></code></pre>
 <p>Notice how the atoms <code>years</code> and <code>old</code> have been added just for the sake of clarity.</p>
-<p> </p>
+<p>Okay, now buckle your seatbelt, Dorothy, cause Kansas is going bye-bye... Ready? Tables can generate tables.</p>
+<pre><code>[</code><br><code>    family's younger-than tables</code><br><code>    =   [detailed family]</code><br><code>        %   #genre( #name age( #age ) )</code><br><code>        :   [</code><br><code>                {#name}'s younger-than table</code><br><code>                =   [detailed family]</code><br><code>                    % #genre( #name age( #age ) )</code><br><code>                    &amp;( {#age} &lt; #age )</code><br><code>                    : #name</code><br><code>            ]</code><br><code>    |   [</code><br><code>            Pedro's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 66 &lt; #age )</code><br><code>                : #name</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Alma's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 62 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Pepa's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 38 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Julieta's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 40 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Bruno's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 36 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Pepa</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>]</code></pre>
+<p>The formula for this table generates other tables. To swallow this, you first need to focus on the <code>{#name}</code> and <code>{#age}</code> elements. These are insertions, meaning they are not intended to appear "as is" in the generated tables, but rather to be replaced with the actual name and age of the current family member. This is why each generated table has a different title, based on the family member's name, as well as a different filter.</p>
 <p> </p>
             ]]>
         </content>
@@ -118,7 +120,7 @@
 <pre><code>4 6 8</code></pre>
 <p>Now this is a term. Its predicate is the atom "<code>a</code>", and it has 2 arguments: the atom "<code>b</code>" and the atom "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
-<p>When an expression is given in a term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
+<p>When an expression is given in a compound term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
 <pre><code>f(1 2 3 + 1 * 2)</code></pre>
 <p>This is equivalent to:</p>
 <pre><code>f(4 6 8)</code></pre>
