@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-15T00:19:44+01:00</updated>
+    <updated>2024-03-15T01:09:05+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -69,7 +69,7 @@
         <updated>2024-03-11T00:51:07+01:00</updated>
             <summary>
                 <![CDATA[
-                    This is a stack. 1 2 3 And this is how you add 2 to each item of this stack. 1 2 3 + 2 The result of this expression is another stack. 3 4 5 There is no operator precedence. Instead, an expression reads&hellip;
+                    This is a stack. 1 2 3 And this is how you add 2 to each item of this stack. 1 2 3 + 2 The result of this expression is another stack. 3 4 5 There is no operator precedence. Instead, everything is right&hellip;
                 ]]>
             </summary>
         <content type="html">
@@ -80,29 +80,31 @@
 <pre><code>1 2 3 + 2</code></pre>
 <p>The result of this expression is another stack.</p>
 <pre><code>3 4 5</code></pre>
-<p>There is no operator precedence. Instead, an expression reads from left to right.</p>
-<pre><code>1 2 3 + 2 * 3</code></pre>
-<p>This expression means <code>1 2 3</code> added to whatever follows, namely <code>2 * 3</code>, which results in:</p>
-<pre><code>7 8 9</code></pre>
+<p>There is no operator precedence. Instead, everything is right associative.</p>
+<pre><code>1 2 3 * 2 + 1</code></pre>
+<p>This expression means <code>1 2 3</code> multiplied by whatever follows, namely <code>2 + 1</code>, which results in:</p>
+<pre><code>3 6 9</code></pre>
 <p>Now this is a term. Its predicate is the atom "<code>a</code>", and it has 2 arguments: the atom "<code>b</code>" and the atom "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
 <p>When an expression is given in a term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
-<pre><code>f(1 2 3 + 2 * 3)</code></pre>
+<pre><code>f(1 2 3 * 2 + 1)</code></pre>
 <p>This is equivalent to:</p>
-<pre><code>f(7 8 9)</code></pre>
+<pre><code>f(3 6 9)</code></pre>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
 <p>A table may have a name, a formula, and values obtained by evaluating the formula. The formula is preceded by equal "<code>=</code>" and each value is preceded by a vertical bar "<code>|</code>".</p>
-<pre><code>[ example = 1 2 3 + 2 * 3 | 7 | 8 | 9 ]</code></pre>
+<pre><code>[ example = 1 2 3 * 2 + 1 | 3 | 6 | 9 ]</code></pre>
 <p>White space is irrelevant.</p>
-<pre><code>[<br>    example<br>    = 1 2 3 + 2 * 3<br>    | 7<br>    | 8<br>    | 9<br>]</code></pre>
+<pre><code>[<br>    example<br>    = 1 2 3 * 2 + 1<br>    | 3<br>    | 6<br>    | 9<br>]</code></pre>
 <p>The formula is optional. A table without formula is a constant table.</p>
 <pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>
 <p>The formula of a table can reference the values of other tables. The name of the referenced tables are put between square brackets.</p>
-<pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 2 * 3</code><br><code>    | 7</code><br><code>    | 8</code><br><code>    | 9</code><br><code>]</code></pre>
-<p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> changes to <code>10 20 30</code>, then <code>[example]</code> will automatically change too.</p>
-<pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 2 * 3</code><br><code>    | 16</code><br><code>    | 26</code><br><code>    | 36</code><br><code>]</code></pre>
-<p>Thus it is an event driven system.</p>
+<pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] * 2 + 1</code><br><code>    | 3</code><br><code>    | 6</code><br><code>    | 9</code><br><code>]</code></pre>
+<p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>
+<pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] * 2 + 1</code><br><code>    | 30</code><br><code>    | 60</code><br><code>    | 90</code><br><code>]</code></pre>
+<p>The difference with a spreadsheet is that you can make recursive loops.</p>
+<pre><code>[ growth = [growth] * 2 | 1 ]</code><br><code>[ growth = [growth] * 2 | 2 ]</code><br><code>[ growth = [growth] * 2 | 4 ]</code><br><code>[ growth = [growth] * 2 | 8 ]</code><br><code>[ growth = [growth] * 2 | 16 ]</code><br><code>[ growth = [growth] * 2 | 32 ]</code><br><code>[ growth = [growth] * 2 | 64 ]</code><br><code>[ growth = [growth] * 2 | 128 ]</code><br><code>[ growth = [growth] * 2 | 256 ]</code></pre>
+<p>Here the <code>[growth]</code> table references itself, calculating its new values based on its previous ones. Thus the network of tables is an event driven medium, through which mutations propagate.</p>
             ]]>
         </content>
     </entry>
