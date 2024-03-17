@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-15T16:27:21+01:00</updated>
+    <updated>2024-03-17T23:57:42+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -27,11 +27,11 @@
             <![CDATA[
                 <p>Hup can not only handle numbers, but also deal with other kinds of terms: atoms, compound terms, and even embedded tables. Intuitively, a term is any piece of meaning.</p>
 <pre><code>[</code><br><code>    family</code><br><code>    | man( Pedro )</code><br><code>    | woman( Alma )</code><br><code>    | woman( Pepa )</code><br><code>    | woman( Julieta )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
-<p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with the monadic "<code>#</code>" operator. These tags capture values during the pattern matching process.</p>
+<p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with "<code>#</code>". These tags capture values during the pattern matching process.</p>
 <pre><code>[</code><br><code>    men only</code><br><code>    = [family] % man( #name )</code><br><code>    | man( Pedro )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
 <p>The Produce operator "<code>:</code>"  will generate new terms using the values captured in tags.</p>
 <pre><code>[</code><br><code>    women as humans</code><br><code>    = [family] % woman( #name ) : human( #name )</code><br><code>    | human( Alma )</code><br><code>    | human( Pepa )</code><br><code>    | human( Julieta )</code><br><code>]</code></pre>
-<p>Multiple tags can capture values at once. The generated output is completely free form, without any inherent meaning.</p>
+<p>Multiple tags can capture values at once. The generated output can be anything, and has no inherent meaning.</p>
 <pre><code>[</code><br><code>    detailed family</code><br><code>    | man( Pedro age( 66 ) )</code><br><code>    | woman( Alma age( 62 ) )</code><br><code>    | woman( Pepa age( 38 ) )</code><br><code>    | woman( Julieta age( 40 ) )</code><br><code>    | man( Bruno age( 36 ) )</code><br><code>]</code><br><br><code>[</code><br><code>    men's age</code><br><code>    = [detailed family] % man( #name age( #age ) ) : #name( #age )</code><br><code>    | Pedro( 66 )</code><br><code>    | Bruno( 36 )</code><br><code>]</code></pre>
 <p>We can filter with the "<code>&amp;</code>" operator.</p>
 <pre><code>[<br>    older than 50<br>    = [detailed family]<br>        % #genre( #name age( #age ) ) &amp;( #age &gt; 50 )<br>        : #name( #genre #age years old )<br>    | Pedro( man 66 years old )<br>    | Alma( woman 62 years old )<br>]<br></code></pre>
@@ -76,6 +76,8 @@
 <pre><code>[ a | 1 | 2 | 3 | 3 ]</code><br><code>[ b | 2 | 3 | 4 | 4 ]</code><br><br><code>[<br>    in 'a' only what you find in 'b'</code><br><code>    = [a] &amp;( [a] € [b] )</code><br><code>    | 2</code><br><code>    | 3<br>    | 3</code><br><code>]</code><br><br><code>[<br>    in 'b' only what you find in 'a'</code><br><code>    = [b] &amp;( [b] € [a] )</code><br><code>    | 2</code><br><code>    | 3<br>    | 3</code><br><code>]</code></pre>
 <p>In case you're wondering, concatenations are merely juxtapositions.</p>
 <pre><code>[</code><br><code>    concatenation of 'a' and 'b'</code><br><code>    = [a] [b]<br>    | 1 | 2 | 3 | 3 | 2 | 3 | 4 | 4</code><br><code></code><code>]</code></pre>
+<p>But let us get fancy. We do have true unions "<code>°</code>" and intersections "<code>^</code>". As you can see, these operators mainly allow you to get rid of duplicates in the process.</p>
+<pre><code>[</code><br><code>    union of 'a' and 'b'</code><br><code>    = [a] ° [b]</code><br><code>    | 1</code><br><code>    | 2</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code><br><br><code>[</code><br><code>    intersection of 'a' and 'b'</code><br><code>    = [a] ^ [b]</code><br><code>    | 2</code><br><code>    | 3</code><br><code>]</code></pre>
 <p>The Of operator "<code>@</code>" references items in a stack.</p>
 <pre><code>[<br>    indices 2 and 3 of tens</code><br><code>    = 2 3 @ [tens]</code><br><code>    | 30</code><br><code>    | 40</code><br><code>]</code></pre>
 <p>The other way around, the Index operator "<code>?</code>" finds (the first occurrence of) items in a stack.</p>
@@ -137,7 +139,7 @@
 <pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 1 * 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>    | 8</code><br><code>]</code></pre>
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>
 <pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 1 * 2</code><br><code>    | 22</code><br><code>    | 42</code><br><code>    | 62</code><br><code>]</code></pre>
-<p>The difference with a spreadsheet is that you can make recursive loops.</p>
+<p>The difference between that and a spreadsheet, is that you can make recursive loops.</p>
 <pre><code>[ growth = [growth] * 2 | 1 ]</code><br><code>[ growth = [growth] * 2 | 2 ]</code><br><code>[ growth = [growth] * 2 | 4 ]</code><br><code>[ growth = [growth] * 2 | 8 ]</code><br><code>[ growth = [growth] * 2 | 16 ]</code><br><code>[ growth = [growth] * 2 | 32 ]</code><br><code>[ growth = [growth] * 2 | 64 ]</code><br><code>[ growth = [growth] * 2 | 128 ]</code><br><code>[ growth = [growth] * 2 | 256 ]</code></pre>
 <p>Here the <code>[growth]</code> table references itself, calculating its new values based on its previous ones. Thus the network of tables is an event driven medium, through which mutations propagate.</p>
             ]]>
