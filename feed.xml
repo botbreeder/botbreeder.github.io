@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-18T00:29:08+01:00</updated>
+    <updated>2024-03-18T23:41:46+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -20,12 +20,12 @@
         <updated>2024-03-15T13:00:46+01:00</updated>
             <summary>
                 <![CDATA[
-                    Hup can not only handle numbers, but also other types of terms: atoms, compound terms, and even embedded arrays. Intuitively, a term can designate any element of meaning. Compound terms have the following syntax, which is vaguely reminiscent of Prolog. [ family | man( Pedro&hellip;
+                    Hup can not only handle numbers, but also other types of terms: atoms, compound terms, and even embedded tables. Intuitively, a term can designate any element of meaning. Compound terms have the following syntax, which is vaguely reminiscent of Prolog. [ family | man( Pedro&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Hup can not only handle numbers, but also other types of terms: atoms, compound terms, and even embedded arrays. Intuitively, a term can designate any element of meaning. Compound terms have the following syntax, which is vaguely reminiscent of Prolog.</p>
+                <p>Hup can not only handle numbers, but also other types of terms: atoms, compound terms, and even embedded tables. Intuitively, a term can designate any element of meaning. Compound terms have the following syntax, which is vaguely reminiscent of Prolog.</p>
 <pre><code>[</code><br><code>    family</code><br><code>    | man( Pedro )</code><br><code>    | woman( Alma )</code><br><code>    | woman( Pepa )</code><br><code>    | woman( Julieta )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
 <p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with "<code>#</code>". These tags capture values during the pattern matching process.</p>
 <pre><code>[</code><br><code>    men only</code><br><code>    = [family] % man( #name )</code><br><code>    | man( Pedro )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
@@ -36,9 +36,9 @@
 <p>You can filter with the "<code>&amp;</code>" Copy operator.</p>
 <pre><code>[<br>    older than 50<br>    = [detailed family]<br>        % #genre( #name age( #age ) ) &amp;( #age &gt; 50 )<br>        : #name( #genre #age years old )<br>    | Pedro( man 66 years old )<br>    | Alma( woman 62 years old )<br>]<br></code></pre>
 <p>Notice how the atoms <code>years</code> and <code>old</code> have been added just for the sake of clarity.</p>
-<p>Okay, now buckle your seatbelt, Dorothy, cause Kansas is going bye-bye... Ready? Tables can generate tables.</p>
+<p>Now. Tables can generate tables.</p>
 <pre><code>[</code><br><code>    family's younger-than tables</code><br><code>    =   [detailed family]</code><br><code>        %   #genre( #name age( #age ) )</code><br><code>        :   [</code><br><code>                {#name}'s younger-than table</code><br><code>                =   [detailed family]</code><br><code>                    % #genre( #name age( #age ) )</code><br><code>                    &amp;( {#age} &lt; #age )</code><br><code>                    : #name</code><br><code>            ]</code><br><code>    |   [</code><br><code>            Pedro's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 66 &lt; #age )</code><br><code>                : #name</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Alma's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 62 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Pepa's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 38 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Julieta's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 40 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Bruno's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 36 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Pepa</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>]</code></pre>
-<p>The formula for this table generates other tables. To swallow this, you first need to focus on the <code>{#name}</code> and <code>{#age}</code> elements. These are insertions, meaning they are not intended to appear "as is" in the generated tables, but rather to be replaced with the actual name and age of the current family member. This is why each generated table has a different title, based on the family member's name, as well as a different filter.</p>
+<p>The formula for this table generates other tables. You first need to focus on the <code>{#name}</code> and <code>{#age}</code> elements. These are insertions, meaning they are not intended to appear "as is" in the generated tables, but rather to be replaced with the actual name and age of the current family member. This is why each generated table has a different title, based on the family member's name, as well as a different filter.</p>
 <p> </p>
             ]]>
         </content>
@@ -61,7 +61,7 @@
             <![CDATA[
                 <p>Arithmetic operators are as you'd expect them: add with "<code>+</code>", subtract with "<code>-</code>", multiply with "<code>*</code>", divide with "<code>/</code>".</p>
 <p>If a stack is preceded by the Shaped operator "<code>$</code>", its length will be modified to fit the length of other operands. If it's too long, it gets truncated. If it's too short, it wraps around. Shaping is automatic on stacks of length 1.</p>
-<pre><code>[ tens | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 ]<br><br>[ units | 1 | 2 | 3 ]<br><br>[<br>    units wrapping around<br>    = [tens] + $[units]<br>    | 11<br>    | 22<br>    | 33<br>    | 41<br>    | 52<br>    | 63<br>    | 71<br>    | 82<br>]</code></pre>
+<pre><code>[ tens | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 ]<br><br>[ units | 1 | 2 | 3 ]<br><br>[<br>    units wrapping around<br>    = [tens] + $[units]<br>    | 11<br>    | 22<br>    | 33<br>    | 41<br>    | 52<br>    | 63<br>    | 71<br>    | 82<br>]<br><br>[<br>    tens truncated<br>    = $[tens] + [units]<br>    | 11<br>    | 22<br>    | 33<br>]</code></pre>
 <p>Boolean operators are: Greater than "<code>&gt;</code>", Less than "<code>&lt;</code>", Greater than or equal "<code>&gt;=</code>", Less than or equal "<code>&lt;=</code>", Equal "<code>==</code>", Different "<code>!=</code>".</p>
 <p>There's also And "<code>&amp;&amp;</code>", Or "<code>||</code>", Not "<code>!</code>".</p>
 <p>They return <code>1</code> if true, and <code>0</code> if false.</p>
@@ -76,7 +76,7 @@
 <pre><code>[ a | 1 | 2 | 3 | 3 ]</code><br><code>[ b | 2 | 3 | 4 | 4 ]</code><br><br><code>[<br>    in 'a' only what you find in 'b'</code><br><code>    = [a] &amp;( [a] € [b] )</code><br><code>    | 2</code><br><code>    | 3<br>    | 3</code><br><code>]</code><br><br><code>[<br>    in 'b' only what you find in 'a'</code><br><code>    = [b] &amp;( [b] € [a] )</code><br><code>    | 2</code><br><code>    | 3<br>    | 3</code><br><code>]</code></pre>
 <p>In case you're wondering, concatenations are merely juxtapositions.</p>
 <pre><code>[</code><br><code>    concatenation of 'a' and 'b'</code><br><code>    = [a] [b]<br>    | 1 | 2 | 3 | 3 | 2 | 3 | 4 | 4</code><br><code></code><code>]</code></pre>
-<p>But let us get fancy. We do have true union "<code>°</code>" and intersection "<code>^</code>" operators. As you can see, they mainly allow you to get rid of duplicates in the process.</p>
+<p>There are real Union "<code>°</code>" and Intersection "<code>^</code>" operators. As you can see, they get rid of duplicates in the process.</p>
 <pre><code>[</code><br><code>    union of 'a' and 'b'</code><br><code>    = [a] ° [b]</code><br><code>    | 1</code><br><code>    | 2</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code><br><br><code>[</code><br><code>    intersection of 'a' and 'b'</code><br><code>    = [a] ^ [b]</code><br><code>    | 2</code><br><code>    | 3</code><br><code>]</code></pre>
 <p>The Of operator "<code>@</code>" references items in a stack.</p>
 <pre><code>[<br>    indices 2 and 3 of tens</code><br><code>    = 2 3 @ [tens]</code><br><code>    | 30</code><br><code>    | 40</code><br><code>]</code></pre>
@@ -123,19 +123,19 @@
 <p>Now this is a term. Its predicate is the atom "<code>a</code>", and it has 2 arguments: the atom "<code>b</code>" and the atom "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
 <p>When an expression is given in a compound term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
-<pre><code>f(1 2 3 + 1 * 2)</code></pre>
+<pre><code>P(1 2 3 + 1 * 2)</code></pre>
 <p>This is equivalent to:</p>
-<pre><code>f(4 6 8)</code></pre>
+<pre><code>P(4 6 8)</code></pre>
 <p>We'll get back to terms in another post.</p>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
 <p>A table may have a name, a formula, and values obtained by evaluating the formula. The formula is preceded by equal "<code>=</code>" and each value is preceded by a vertical bar "<code>|</code>".</p>
 <pre><code>[ example = 1 2 3 + 1 * 2 | 4 | 6 | 8 ]</code></pre>
-<p>White space is irrelevant.</p>
+<p>Whitespace characters are insignificant.</p>
 <pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>
 <p>The formula is optional. A table without formula is a constant table.</p>
 <pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>
-<p>The formula of a table can reference the values of other tables. The name of the referenced tables are put between square brackets.</p>
+<p>A table's formula can reference values from other tables. The names of referenced tables are enclosed in square brackets.</p>
 <pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 1 * 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>    | 8</code><br><code>]</code></pre>
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>
 <pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 1 * 2</code><br><code>    | 22</code><br><code>    | 42</code><br><code>    | 62</code><br><code>]</code></pre>
