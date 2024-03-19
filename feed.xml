@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-19T15:26:51+01:00</updated>
+    <updated>2024-03-19T16:53:18+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -20,7 +20,7 @@
         <updated>2024-03-19T14:34:18+01:00</updated>
             <summary>
                 <![CDATA[
-                    Right now, nothing has been said about: Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature. A table name is a queue of values.
+                    Right now, nothing has been said about: Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature. A table name is a stack of values.
                 ]]>
             </summary>
         <content type="html">
@@ -33,14 +33,18 @@
 <li>Implementation details.</li>
 </ul>
 <hr>
-<p>Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature<span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">. A table name is a queue of values. When a formula is recalculated, the old values are deleted from the queue and the new values are pushed at the end of the queue. So the user can always expect a table name to present values in chronological order of update.</span></p>
+<p>Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature<span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">. A table name is a stack of values. When a formula is recalculated, the old values are deleted from the stack and the new values are pushed onto it. So the user can always expect a table name to represent values in chronological order of update.</span></p>
 <p>Since tables can generate and host other tables, table names can be qualified by path, using a filesystem metaphor. For example, <code>parent/table</code> would mean the table named <code>table</code> that's inside the table named <code>parent</code>.</p>
 <hr>
 <p>I don't want to make error handling a cause of flow disruption. Instead, the system should be able to continue working as best as it can, while isolating errors to prevent propagation, and having them be part of the current situation by logging them in dedicated error tables.</p>
 <p>As a rule of thumb, when the evaluation of a formula produces an error, the result of that formula is merely an empty list. The built-in <code>ERR</code> table receives a formatted entry about the error. Errors can then be manually handled by the user.</p>
 <hr>
-<p>User-defined functions are defined like this.</p>
-<pre>[ .sqr() | # * # ]<br><br><code>[</code><br><code>    squared units</code><br><code>    = [units] .sqr()</code><br><code>    | 1</code><br><code>    | 4</code><br><code>    | 9</code><br><code>]</code><br><br><code>[ .pow(#power) | # &amp; #power \* ]</code><br><br><code>[</code><br><code>    units power three</code><br><code>    = [units] .pow(3)</code><br><code>    | 1</code><br><code>    | 8</code><br><code>    | 27</code><br><code>]</code></pre>
+<p>User-defined functions are defined in tables. The name of the table is the signature of the function, and the unique value of the table is the body of the function.</p>
+<p>User-defined functions always begin with a period "<code>.</code>" character, and are followed by parentheses which receive the arguments, each preceded by a "<code>#</code>" character.</p>
+<pre><code>[ .sqr() | # * # ]</code><br><br><code>[</code><br><code>    squared units</code><br><code>    = [units] .sqr()</code><br><code>    | 1</code><br><code>    | 4</code><br><code>    | 9</code><br><code>]</code><br><br><code>[ .pow(#power) | # &amp; #power \* ]</code><br><br><code>[</code><br><code>    units power three</code><br><code>    = [units] .pow(3)</code><br><code>    | 1</code><br><code>    | 8</code><br><code>    | 27</code><br><code>]</code></pre>
+<p>Remember that evaluation goes from left to right, everything being left-associative. In the body of the function, a single "<code>#</code>" character represents the values-so-far. If the function was an operator, we could say that "#" represents its left-hand side operand.</p>
+<hr>
+<p>I'm not yet sure of how all of this will be implemented. But the target language is Go (with Wails for the frontend), and goroutines are probably going to be used extensively. </p>
             ]]>
         </content>
     </entry>
@@ -123,6 +127,9 @@
 <pre><code>[ A | 100 | 200 | 300 | 400 ]</code><br><code>[ B | 500 | 600 | 700 | 800 ]</code><br><br><code>[<br>    what's to B what 200 and 300 are to A </code><br><code>    = [A] ? 200 300 @ [B]</code><br><code>    | 600</code><br><code>    | 700</code><br><code>]</code></pre>
 <p>There's no need for a "ternary if" operator. In fact <code>@</code> can act as a switch, because Boolean operators return <code>0</code> or <code>1</code>.</p>
 <pre><code>[<br>    a thousand when true</code><br><code>    = [tens] &gt; 30 @ 500 1000</code><br><code>    | 500</code><br><code>    | 500</code><br><code></code><code>    | 500<br>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>]</code></pre>
+<hr>
+<p>The Reduce "<code>\</code>" operator can be used to transform a stack into a single value by applying another operator repeatedly to each of its values.</p>
+<pre><code>[</code><br><code>    sum of units</code><br><code>    = [units] \+</code><br><code>    | 6</code><br><code>]</code></pre>
 <hr>
 <p>Finally, a formula can begin with an update delay, expressed in milliseconds, followed either by a comma "<code>,</code>" (delay after first change) or a semi-colon "<code>;</code>" (delay after last change). These two are not really operators, rather interpreter directives.</p>
 <pre><code>[<br>    jumpy</code><br><code>    = 50, [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code><br><br><code>[<br>    patient</code><br><code>    = 2000; [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code></pre>
