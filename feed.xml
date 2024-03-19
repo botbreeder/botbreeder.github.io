@@ -3,12 +3,47 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-18T23:41:46+01:00</updated>
+    <updated>2024-03-19T15:26:51+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Hup, design considerations</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/hup-design-considerations.html"/>
+        <id>https://botbreeder.github.io/hup-design-considerations.html</id>
+
+        <updated>2024-03-19T14:34:18+01:00</updated>
+            <summary>
+                <![CDATA[
+                    Right now, nothing has been said about: Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature. A table name is a queue of values.
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Right now, nothing has been said about:</p>
+<ul style="list-style-type: square;">
+<li>What to do when multiple tables have the same name,</li>
+<li>Error handling,</li>
+<li>User-defined functions or operators,</li>
+<li>Implementation details.</li>
+</ul>
+<hr>
+<p>Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature<span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">. A table name is a queue of values. When a formula is recalculated, the old values are deleted from the queue and the new values are pushed at the end of the queue. So the user can always expect a table name to present values in chronological order of update.</span></p>
+<p>Since tables can generate and host other tables, table names can be qualified by path, using a filesystem metaphor. For example, <code>parent/table</code> would mean the table named <code>table</code> that's inside the table named <code>parent</code>.</p>
+<hr>
+<p>I don't want to make error handling a cause of flow disruption. Instead, the system should be able to continue working as best as it can, while isolating errors to prevent propagation, and having them be part of the current situation by logging them in dedicated error tables.</p>
+<p>As a rule of thumb, when the evaluation of a formula produces an error, the result of that formula is merely an empty list. The built-in <code>ERR</code> table receives a formatted entry about the error. Errors can then be manually handled by the user.</p>
+<hr>
+<p>User-defined functions are defined like this.</p>
+<pre>[ .sqr() | # * # ]<br><br><code>[</code><br><code>    squared units</code><br><code>    = [units] .sqr()</code><br><code>    | 1</code><br><code>    | 4</code><br><code>    | 9</code><br><code>]</code><br><br><code>[ .pow(#power) | # &amp; #power \* ]</code><br><br><code>[</code><br><code>    units power three</code><br><code>    = [units] .pow(3)</code><br><code>    | 1</code><br><code>    | 8</code><br><code>    | 27</code><br><code>]</code></pre>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Hup, other than numbers</title>
         <author>
@@ -30,16 +65,16 @@
 <p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with "<code>#</code>". These tags capture values during the pattern matching process.</p>
 <pre><code>[</code><br><code>    men only</code><br><code>    = [family] % man( #name )</code><br><code>    | man( Pedro )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
 <p>The Produce operator "<code>:</code>"  will generate new terms using the values captured in tags.</p>
-<pre><code>[</code><br><code>    women as humans</code><br><code>    = [family] % woman( #name ) : human( #name )</code><br><code>    | human( Alma )</code><br><code>    | human( Pepa )</code><br><code>    | human( Julieta )</code><br><code>]</code></pre>
+<pre><code>[</code><br><code>    women only</code><br><code>    = [family] % woman( #name ) : human( #name )</code><br><code>    | human( Alma )</code><br><code>    | human( Pepa )</code><br><code>    | human( Julieta )</code><br><code>]</code></pre>
 <p>Multiple tags can capture values at once. The generated output can be anything, and has no <em>inherent</em> meaning.</p>
 <pre><code>[</code><br><code>    detailed family</code><br><code>    | man( Pedro age( 66 ) )</code><br><code>    | woman( Alma age( 62 ) )</code><br><code>    | woman( Pepa age( 38 ) )</code><br><code>    | woman( Julieta age( 40 ) )</code><br><code>    | man( Bruno age( 36 ) )</code><br><code>]</code><br><br><code>[</code><br><code>    men's age</code><br><code>    = [detailed family] % man( #name age( #age ) ) : #name( #age )</code><br><code>    | Pedro( 66 )</code><br><code>    | Bruno( 36 )</code><br><code>]</code></pre>
 <p>You can filter with the "<code>&amp;</code>" Copy operator.</p>
 <pre><code>[<br>    older than 50<br>    = [detailed family]<br>        % #genre( #name age( #age ) ) &amp;( #age &gt; 50 )<br>        : #name( #genre #age years old )<br>    | Pedro( man 66 years old )<br>    | Alma( woman 62 years old )<br>]<br></code></pre>
 <p>Notice how the atoms <code>years</code> and <code>old</code> have been added just for the sake of clarity.</p>
+<hr>
 <p>Now. Tables can generate tables.</p>
 <pre><code>[</code><br><code>    family's younger-than tables</code><br><code>    =   [detailed family]</code><br><code>        %   #genre( #name age( #age ) )</code><br><code>        :   [</code><br><code>                {#name}'s younger-than table</code><br><code>                =   [detailed family]</code><br><code>                    % #genre( #name age( #age ) )</code><br><code>                    &amp;( {#age} &lt; #age )</code><br><code>                    : #name</code><br><code>            ]</code><br><code>    |   [</code><br><code>            Pedro's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 66 &lt; #age )</code><br><code>                : #name</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Alma's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 62 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Pepa's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 38 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Julieta's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 40 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Bruno's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 36 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Pepa</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>]</code></pre>
 <p>The formula for this table generates other tables. You first need to focus on the <code>{#name}</code> and <code>{#age}</code> elements. These are insertions, meaning they are not intended to appear "as is" in the generated tables, but rather to be replaced with the actual name and age of the current family member. This is why each generated table has a different title, based on the family member's name, as well as a different filter.</p>
-<p> </p>
             ]]>
         </content>
     </entry>
@@ -66,6 +101,7 @@
 <p>There's also And "<code>&amp;&amp;</code>", Or "<code>||</code>", Not "<code>!</code>".</p>
 <p>They return <code>1</code> if true, and <code>0</code> if false.</p>
 <pre><code>[<br>    units greater than one</code><br><code>    = [units] &gt; 1</code><br><code>    | 0</code><br><code>    | 1</code><br><code>    | 1</code><br><code>]</code></pre>
+<hr>
 <p>There is a Copy operator "<code>&amp;</code>". It will repeat the items of a stack a certain number of times, possibly zero times.</p>
 <pre><code>[<br>    units twice<br>    = [units] &amp; 2<br>    | 1 | 1 | 2 | 2 | 3 | 3<br>]<br><br>[<br>    handpicked tens<br>    = [tens] &amp; 0 0 2 0 1 0 0 0<br>    | 30<br>    | 30<br>    | 50<br>]</code></pre>
 <p>When copying zero times, it acts as a filter. It can be used in conjunction with Boolean operators.</p>
@@ -78,6 +114,7 @@
 <pre><code>[</code><br><code>    concatenation of 'a' and 'b'</code><br><code>    = [a] [b]<br>    | 1 | 2 | 3 | 3 | 2 | 3 | 4 | 4</code><br><code></code><code>]</code></pre>
 <p>There are real Union "<code>°</code>" and Intersection "<code>^</code>" operators. As you can see, they get rid of duplicates in the process.</p>
 <pre><code>[</code><br><code>    union of 'a' and 'b'</code><br><code>    = [a] ° [b]</code><br><code>    | 1</code><br><code>    | 2</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code><br><br><code>[</code><br><code>    intersection of 'a' and 'b'</code><br><code>    = [a] ^ [b]</code><br><code>    | 2</code><br><code>    | 3</code><br><code>]</code></pre>
+<hr>
 <p>The Of operator "<code>@</code>" references items in a stack.</p>
 <pre><code>[<br>    indices 2 and 3 of tens</code><br><code>    = 2 3 @ [tens]</code><br><code>    | 30</code><br><code>    | 40</code><br><code>]</code></pre>
 <p>The other way around, the Index operator "<code>?</code>" finds (the first occurrence of) items in a stack.</p>
@@ -86,11 +123,12 @@
 <pre><code>[ A | 100 | 200 | 300 | 400 ]</code><br><code>[ B | 500 | 600 | 700 | 800 ]</code><br><br><code>[<br>    what's to B what 200 and 300 are to A </code><br><code>    = [A] ? 200 300 @ [B]</code><br><code>    | 600</code><br><code>    | 700</code><br><code>]</code></pre>
 <p>There's no need for a "ternary if" operator. In fact <code>@</code> can act as a switch, because Boolean operators return <code>0</code> or <code>1</code>.</p>
 <pre><code>[<br>    a thousand when true</code><br><code>    = [tens] &gt; 30 @ 500 1000</code><br><code>    | 500</code><br><code>    | 500</code><br><code></code><code>    | 500<br>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>    | 1000</code><br><code>]</code></pre>
+<hr>
 <p>Finally, a formula can begin with an update delay, expressed in milliseconds, followed either by a comma "<code>,</code>" (delay after first change) or a semi-colon "<code>;</code>" (delay after last change). These two are not really operators, rather interpreter directives.</p>
 <pre><code>[<br>    jumpy</code><br><code>    = 50, [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code><br><br><code>[<br>    patient</code><br><code>    = 2000; [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code></pre>
-<p>The jumpy table will plan an update 50ms after a change, unless an update is already planned. The patient table will plan an update 2 seconds after a change, cancelling any previously planned update.</p>
+<p>The <code>jumpy</code> table will plan an update 50ms after a change, unless an update is already planned. The <code>patient</code> table will plan an update 2 seconds after a change, cancelling any previously planned update.</p>
+<p>When time has come to apply an update, if updating wouldn't change the values of a table, the update is cancelled. So for instance, the <code>jumpy</code> table will only get updated if <code>units</code> becomes different AND if it's still different 50ms later. If, in the meantime, <code>units</code> gets back to its initial values, <code>jumpy</code> won't update.</p>
 <p>The default is, immediate update.</p>
-<p> </p>
             ]]>
         </content>
     </entry>
@@ -120,6 +158,7 @@
 <pre><code>1 2 3 + 1 * 2</code></pre>
 <p>This expression means <code>(1 2 3 + 1) * 2</code>, which results in:</p>
 <pre><code>4 6 8</code></pre>
+<hr>
 <p>Now this is a term. Its predicate is the atom "<code>a</code>", and it has 2 arguments: the atom "<code>b</code>" and the atom "<code>c</code>".</p>
 <pre><code>a(b c)</code></pre>
 <p>When an expression is given in a compound term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>
@@ -127,6 +166,7 @@
 <p>This is equivalent to:</p>
 <pre><code>P(4 6 8)</code></pre>
 <p>We'll get back to terms in another post.</p>
+<hr>
 <p>Now, this is a table.</p>
 <pre><code>[ ]</code></pre>
 <p>A table may have a name, a formula, and values obtained by evaluating the formula. The formula is preceded by equal "<code>=</code>" and each value is preceded by a vertical bar "<code>|</code>".</p>
@@ -139,9 +179,7 @@
 <pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 1 * 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>    | 8</code><br><code>]</code></pre>
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>
 <pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 1 * 2</code><br><code>    | 22</code><br><code>    | 42</code><br><code>    | 62</code><br><code>]</code></pre>
-<p>The difference between that and a spreadsheet, is that you can make recursive loops.</p>
-<pre><code>[ growth = [growth] * 2 | 1 ]</code><br><code>[ growth = [growth] * 2 | 2 ]</code><br><code>[ growth = [growth] * 2 | 4 ]</code><br><code>[ growth = [growth] * 2 | 8 ]</code><br><code>[ growth = [growth] * 2 | 16 ]</code><br><code>[ growth = [growth] * 2 | 32 ]</code><br><code>[ growth = [growth] * 2 | 64 ]</code><br><code>[ growth = [growth] * 2 | 128 ]</code><br><code>[ growth = [growth] * 2 | 256 ]</code></pre>
-<p>Here the <code>[growth]</code> table references itself, calculating its new values based on its previous ones. Thus the network of tables is an event driven medium, through which mutations propagate.</p>
+<p>Thus the network of tables is an event driven medium, through which mutations propagate.</p>
             ]]>
         </content>
     </entry>
