@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-20T01:18:28+01:00</updated>
+    <updated>2024-03-20T01:59:00+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -41,8 +41,9 @@
 <hr>
 <p>User-defined functions are defined in tables. The name of the table is the signature of the function, and the unique value of the table is the body of the function.</p>
 <p>User-defined functions always begin with a period "<code>.</code>" character, and are followed by parentheses which receive the arguments, each preceded by a "<code>#</code>" character.</p>
-<pre>[ .sqr() | # * # ]<br><br>[<br>    squared units<br>    = [units] .sqr()<br>    | 1<br>    | 4<br>    | 9<br>]<br><br>[ .pow(#power) | (#) &amp; #power \* ]<br><br>[<br>    units power three<br>    = [units] .pow(3)<br>    | 1<br>    | 8<br>    | 27<br>]</pre>
-<p>Remember that evaluation goes from left to right, everything being left-associative. In the body of the function, a single "<code>#</code>" character represents the values-so-far. If the function was an operator, we could say that "<code>#</code>" represents its left-hand side operand.</p>
+<pre>[ .sqr() | # * # ]<br><br>[<br>    squared units<br>    = [units] .sqr()<br>    | 1<br>    | 4<br>    | 9<br>]<br><br>[ .pow(#power) | (#) &amp; #power \* ]<br><br>[<br>    units to the third<br>    = [units] .pow(3)<br>    | 1<br>    | 8<br>    | 27<br>]</pre>
+<p>Remember that evaluation goes from left to right, everything being left-associative. In the body of a user-defined function, a single "<code>#</code>" character represents the values-so-far. If the function was an infix operator, we could say that "<code>#</code>" represents its left-hand side operand.</p>
+<p>You might be wondering why the "<code>#</code>" in the <code>pow()</code> function's body is between parentheses. That's because we want want to obtain <code>(1 2 3) * (1 2 3) * (1 2 3)</code> rather than <code>1 * 1 * 1 * 2 * 2 * 2 * 3 * 3 * 3</code>.</p>
 <hr>
 <p>I'm not yet sure of how all of this will be implemented. But the target language is Go (with Wails for the frontend), and goroutines are probably going to be used extensively. </p>
             ]]>
