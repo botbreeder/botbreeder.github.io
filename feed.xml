@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-20T01:59:00+01:00</updated>
+    <updated>2024-03-21T10:20:43+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -40,7 +40,7 @@
 <p>As a rule of thumb, when the evaluation of a formula produces an error, the result of that formula is merely an empty list. The built-in <code>ERR</code> table receives a formatted entry about the error. Errors can then be manually handled by the user.</p>
 <hr>
 <p>User-defined functions are defined in tables. The name of the table is the signature of the function, and the unique value of the table is the body of the function.</p>
-<p>User-defined functions always begin with a period "<code>.</code>" character, and are followed by parentheses which receive the arguments, each preceded by a "<code>#</code>" character.</p>
+<p>User-defined functions always begin with a period "<code>.</code>" character, and are followed by parentheses which receive the arguments, each preceded by a "<code>#</code>" character. The function name's first character is a lowercase letter.</p>
 <pre>[ .sqr() | # * # ]<br><br>[<br>    squared units<br>    = [units] .sqr()<br>    | 1<br>    | 4<br>    | 9<br>]<br><br>[ .pow(#power) | (#) &amp; #power \* ]<br><br>[<br>    units to the third<br>    = [units] .pow(3)<br>    | 1<br>    | 8<br>    | 27<br>]</pre>
 <p>Remember that evaluation goes from left to right, everything being left-associative. In the body of a user-defined function, a single "<code>#</code>" character represents the values-so-far. If the function was an infix operator, we could say that "<code>#</code>" represents its left-hand side operand.</p>
 <p>You might be wondering why the "<code>#</code>" in the <code>pow()</code> function's body is between parentheses. That's because we want want to obtain <code>(1 2 3) * (1 2 3) * (1 2 3)</code> rather than <code>1 * 1 * 1 * 2 * 2 * 2 * 3 * 3 * 3</code>.</p>
@@ -67,7 +67,7 @@
             <![CDATA[
                 <p>Hup can not only handle numbers, but also other types of terms: atoms, compound terms, and even embedded tables. Intuitively, a term can designate any element of meaning. Compound terms have the following syntax, which is vaguely reminiscent of Prolog.</p>
 <pre><code>[</code><br><code>    family</code><br><code>    | man( Pedro )</code><br><code>    | woman( Alma )</code><br><code>    | woman( Pepa )</code><br><code>    | woman( Julieta )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
-<p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains tags marked with "<code>#</code>". These tags capture values during the pattern matching process.</p>
+<p>There's an Extract operator "<code>%</code>". It does two things: it filters items, and unifies them with a pattern. The pattern contains wildcards, which are tags marked with "<code>#</code>". These tags capture values during the pattern matching process.</p>
 <pre><code>[</code><br><code>    men only</code><br><code>    = [family] % man( #name )</code><br><code>    | man( Pedro )</code><br><code>    | man( Bruno )</code><br><code>]</code></pre>
 <p>The Produce operator "<code>:</code>"  will generate new terms using the values captured in tags.</p>
 <pre><code>[</code><br><code>    women only</code><br><code>    = [family] % woman( #name ) : human( #name )</code><br><code>    | human( Alma )</code><br><code>    | human( Pepa )</code><br><code>    | human( Julieta )</code><br><code>]</code></pre>
@@ -76,6 +76,13 @@
 <p>You can filter with the "<code>&amp;</code>" Copy operator.</p>
 <pre><code>[<br>    older than 50<br>    = [detailed family]<br>        % #genre( #name age( #age ) ) &amp;( #age &gt; 50 )<br>        : #name( #genre #age years old )<br>    | Pedro( man 66 years old )<br>    | Alma( woman 62 years old )<br>]<br></code></pre>
 <p>Notice how the atoms <code>years</code> and <code>old</code> have been added just for the sake of clarity.</p>
+<hr>
+<p>In a pattern, an underscore "<code>_</code>" means zero or more elements we don't care about. Additionally, a compound term with nothing between parentheses is the same as an atom.</p>
+<pre><code>% a _ human</code></pre>
+<p>This pattern would accept all of the following expressions.</p>
+<pre><code>a human<br>a very old human<br>a human()</code></pre>
+<p>You can set up tables that contain acceptable values for special wildcards marked with the tilde "~" character.</p>
+<pre><code>[</code><br><code>    pet</code><br><code>    | cat</code><br><code>    | dog</code><br><code>    | mouse</code><br><code>]</code><br><br><code>[</code><br><code>    pet owners</code><br><code>    | Jill has cat</code><br><code>    | Jake has fish</code><br><code>    | John has mouse</code><br><code>]</code><br><br><code>[</code><br><code>    owners liking pets</code><br><code>    = [owners] % #name _ ~pet#animal : #name likes #animal</code><br><code>    | Jill likes a cat</code><br><code>    | John likes a mouse</code><br><code>]</code></pre>
 <hr>
 <p>Now. Tables can generate tables.</p>
 <pre><code>[</code><br><code>    family's younger-than tables</code><br><code>    =   [detailed family]</code><br><code>        %   #genre( #name age( #age ) )</code><br><code>        :   [</code><br><code>                {#name}'s younger-than table</code><br><code>                =   [detailed family]</code><br><code>                    % #genre( #name age( #age ) )</code><br><code>                    &amp;( {#age} &lt; #age )</code><br><code>                    : #name</code><br><code>            ]</code><br><code>    |   [</code><br><code>            Pedro's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 66 &lt; #age )</code><br><code>                : #name</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Alma's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 62 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Pepa's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 38 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Julieta's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 40 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>        ]</code><br><code>    |   [</code><br><code>            Bruno's younger-than table</code><br><code>            =   [detailed family]</code><br><code>                % #genre( #name age( #age ) )</code><br><code>                &amp;( 36 &lt; #age )</code><br><code>                : #name</code><br><code>            |   Pedro</code><br><code>            |   Alma</code><br><code>            |   Pepa</code><br><code>            |   Julieta</code><br><code>        ]</code><br><code>]</code></pre>
@@ -131,6 +138,7 @@
 <hr>
 <p>The Reduce "<code>\</code>" operator can be used to transform a stack into a single value by applying another operator repeatedly to each of its values.</p>
 <pre><code>[</code><br><code>    sum of units</code><br><code>    = [units] \+</code><br><code>    | 6</code><br><code>]</code></pre>
+<p> </p>
 <hr>
 <p>Finally, a formula can begin with an update delay, expressed in milliseconds, followed either by a comma "<code>,</code>" (delay after first change) or a semi-colon "<code>;</code>" (delay after last change). These two are not really operators, rather interpreter directives.</p>
 <pre><code>[<br>    jumpy</code><br><code>    = 50, [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code><br><br><code>[<br>    patient</code><br><code>    = 2000; [units] * 2</code><br><code>    | 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>]</code></pre>
