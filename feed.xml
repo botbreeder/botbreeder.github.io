@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-21T11:11:43+01:00</updated>
+    <updated>2024-03-21T15:16:44+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -45,7 +45,8 @@
 <p>Remember that evaluation goes from left to right, everything being left-associative. In the body of a user-defined function, a single "<code>#</code>" character represents the values-so-far. If the function was an infix operator, we could say that "<code>#</code>" represents its left-hand side operand.</p>
 <p>You might be wondering why the "<code>#</code>" in the <code>pow()</code> function's body is between parentheses. That's because we want want to obtain <code>(1 2 3) * (1 2 3) * (1 2 3)</code> rather than <code>1 * 1 * 1 * 2 * 2 * 2 * 3 * 3 * 3</code>.</p>
 <hr>
-<p>I'm not yet sure of how all of this will be implemented. But the target language is Go (with Wails for the frontend), and goroutines are probably going to be used extensively. </p>
+<p>I'm not yet sure of how all of this will be implemented. But the target language is Go (with Wails for the frontend), and goroutines are probably going to be used extensively.</p>
+<p>Oh snap, I know how it will be implemented. By typing on a keyboard with my hands which are fortunately full of fingers.</p>
             ]]>
         </content>
     </entry>
