@@ -3,12 +3,35 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-21T15:16:44+01:00</updated>
+    <updated>2024-03-25T15:29:51+01:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Parsing in Go, showing in Wails</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/parsing-in-go-showing-in-wails.html"/>
+        <id>https://botbreeder.github.io/parsing-in-go-showing-in-wails.html</id>
+
+        <updated>2024-03-25T15:01:37+01:00</updated>
+            <summary>
+                <![CDATA[
+                    It's an achievement. I was stuck for several days, daunted by the prospect of connecting Pigeon, which is a PEG parser for Go, to Wails which is my target platform. I succeeded! This would be probably nothing to anyone used to working with Go, but&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>It's an achievement. I was stuck for several days, daunted by the prospect of connecting <a href="https://github.com/mna/pigeon" target="_blank" rel="noopener noreferrer">Pigeon</a>, which is a PEG parser for Go, to <a href="https://wails.io/" target="_blank" rel="noopener noreferrer">Wails</a> which is my target platform. I succeeded!</p>
+<figure class="post__image"><img loading="lazy"  src="https://botbreeder.github.io/media/posts/11/parser-first-step.PNG" alt="Screen capture of a successful parsing" width="496" height="492" sizes="(max-width: 48em) 100vw, 768px" srcset="https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w"></figure>
+<p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>
+<p>Yeah, 3 × 5 = 15... it's show time 🤩</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Hup, design considerations</title>
         <author>
