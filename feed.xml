@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-01T20:27:54+02:00</updated>
+    <updated>2024-04-01T20:36:38+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -20,15 +20,15 @@
         <updated>2024-04-01T15:55:02+02:00</updated>
             <summary>
                 <![CDATA[
-                    Oh, kay, I've been a bit optimistic there. 😅 I needed to move on, so I decided to switch back to good old Javascript. I used PEGGYjs, which is the properly maintained son of PEGjs. A few hours later, when I look at the sheer&hellip;
+                    Oh... kay... I've been a little optimistic there. 😅 I needed to move on, so I decided to switch back to good old Javascript. I used PEGGYjs, which is the properly maintained child of PEGjs. A few hours later, when I look at the sheer&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Oh, kay, I've been a bit optimistic there. 😅</p>
-<p>I needed to move on, so I decided to switch back to good old Javascript. I used <a href="https://peggyjs.org/">PEGGYjs</a>, which is the properly maintained son of PEGjs. A few hours later, when I look at the sheer size of the grammar, I don't regret my decision. It wasn't exactly trivial to setup in Javascript, so doing it in Go would have been next to impossible for me.</p>
-<p>One potential benefit would be the ability to include Javascript lines of code directly in the tables, for example. But that will require an additional syntactic device. So for now, I'll stick to the original plan.</p>
-<p>Every code sample shown in the previous posts is correctly parsed by the parser, and turned into a JSON object.</p>
+                <p>Oh... kay... I've been a little optimistic there. 😅</p>
+<p>I needed to move on, so I decided to switch back to good old Javascript. I used <a href="https://peggyjs.org/">PEGGYjs</a>, which is the properly maintained child of PEGjs. A few hours later, when I look at the sheer size of the grammar, I don't regret my decision. It wasn't exactly trivial to setup in Javascript, so doing it in Go would have been next to impossible for me.</p>
+<p>One potential benefit will be the ability to include Javascript lines of code directly in the tables, for example. But that will require an additional syntactic device that is not invented yet. So for now, I'll stick to the original plan. Having Hup Javascript-based shouldn't make it overly slow.</p>
+<p>Anyway every code sample shown in the previous posts is now correctly parsed by the parser, and turned into a JSON object.</p>
 <pre><code>[</code><br><code>    older than 50</code><br><code>    = [detailed family]</code><br><code>        % #genre( #name age(#age) ) &amp;( #age &gt; 50 )</code><br><code>        : #name( #genre #age years old )</code><br><code>    | Pedro( man 66 years old )</code><br><code>    | Alma( woman 62 years old )</code><br><code>]</code></pre>
 <p>This results in the following structure.</p>
 <pre id="output" class="">[
