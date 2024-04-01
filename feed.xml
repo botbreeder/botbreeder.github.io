@@ -3,12 +3,239 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-03-25T16:22:31+01:00</updated>
+    <updated>2024-04-01T15:55:02+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Parsing in Javascript after all</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/parsing-in-javascript-after-all.html"/>
+        <id>https://botbreeder.github.io/parsing-in-javascript-after-all.html</id>
+
+        <updated>2024-04-01T15:55:02+02:00</updated>
+            <summary>
+                <![CDATA[
+                    Oh, kay, I've been a bit optimistic there. 😅 I needed to move on, so I decided to switch back to good old Javascript. I'm using PEGGYjs, which is the properly maintained descendant of PEGjs. A few hours later, when I look at the sheer&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Oh, kay, I've been a bit optimistic there. 😅</p>
+<p>I needed to move on, so I decided to switch back to good old Javascript. I'm using <a href="https://peggyjs.org/">PEGGYjs</a>, which is the properly maintained descendant of PEGjs. A few hours later, when I look at the sheer size of the grammar, I don't regret my decision. It wasn't exactly trivial to setup in Javascript, so doing it in Go would have been next to impossible for me.</p>
+<p>One potential benefit would be the ability to include Javascript lines of code directly in the tables, for example. But for now, I'll stick to the original plan.</p>
+<p>Every code sample shown in the previous posts is correctly parsed by the parser, and turned into a JSON object.</p>
+<pre><code>[</code><br><code>    older than 50</code><br><code>    = [detailed family]</code><br><code>        % #genre( #name age(#age) ) &amp;( #age &gt; 50 )</code><br><code>        : #name( #genre #age years old )</code><br><code>    | Pedro( man 66 years old )</code><br><code>    | Alma( woman 62 years old )</code><br><code>]</code></pre>
+<p>This result in the following structure.</p>
+<pre id="output" class="">[
+  {
+    TableName: 'older than 50',
+    TableFormula: [
+      {
+        Operator: 'PRODUCE',
+        Operands: [
+          {
+            T: 'Reference',
+            V: 'detailed family'
+          }
+        ]
+      },
+      {
+        Operator: 'EXTRACT',
+        Shaped: false,
+        Operands: [
+          {
+            T: 'Compound',
+            V: {
+              Functor: {
+                T: 'Variable',
+                V: '#genre'
+              },
+              Arguments: [
+                {
+                  Operator: 'PRODUCE',
+                  Operands: [
+                    {
+                      T: 'Variable',
+                      V: '#name'
+                    },
+                    {
+                      T: 'Compound',
+                      V: {
+                        Functor: {
+                          T: 'Atom',
+                          V: 'age'
+                        },
+                        Arguments: [
+                          {
+                            Operator: 'PRODUCE',
+                            Operands: [
+                              {
+                                T: 'Variable',
+                                V: '#age'
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        Operator: 'COPY',
+        Shaped: false,
+        Operands: [
+          {
+            T: 'Formula',
+            V: [
+              {
+                Operator: 'PRODUCE',
+                Operands: [
+                  {
+                    T: 'Variable',
+                    V: '#age'
+                  }
+                ]
+              },
+              {
+                Operator: 'GT',
+                Shaped: false,
+                Operands: [
+                  {
+                    T: 'Number',
+                    V: 50
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        Operator: 'PRODUCE',
+        Shaped: false,
+        Operands: [
+          {
+            T: 'Compound',
+            V: {
+              Functor: {
+                T: 'Variable',
+                V: '#name'
+              },
+              Arguments: [
+                {
+                  Operator: 'PRODUCE',
+                  Operands: [
+                    {
+                      T: 'Variable',
+                      V: '#genre'
+                    },
+                    {
+                      T: 'Variable',
+                      V: '#age'
+                    },
+                    {
+                      T: 'Atom',
+                      V: 'years'
+                    },
+                    {
+                      T: 'Atom',
+                      V: 'old'
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    TableValues: [
+      [
+        {
+          T: 'Compound',
+          V: {
+            Functor: {
+              T: 'Atom',
+              V: 'Pedro'
+            },
+            Arguments: [
+              {
+                Operator: 'PRODUCE',
+                Operands: [
+                  {
+                    T: 'Atom',
+                    V: 'man'
+                  },
+                  {
+                    T: 'Number',
+                    V: 66
+                  },
+                  {
+                    T: 'Atom',
+                    V: 'years'
+                  },
+                  {
+                    T: 'Atom',
+                    V: 'old'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      [
+        {
+          T: 'Compound',
+          V: {
+            Functor: {
+              T: 'Atom',
+              V: 'Alma'
+            },
+            Arguments: [
+              {
+                Operator: 'PRODUCE',
+                Operands: [
+                  {
+                    T: 'Atom',
+                    V: 'woman'
+                  },
+                  {
+                    T: 'Number',
+                    V: 62
+                  },
+                  {
+                    T: 'Atom',
+                    V: 'years'
+                  },
+                  {
+                    T: 'Atom',
+                    V: 'old'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    ]
+  }
+]</pre>
+<p>Notice how the first part of a formula gets turned into a <code>Produce</code> operation.</p>
+<p>The platform is still Wails, but the target is now Javascript, probably using Web Workers to keep the UI perfectly reactive. With everything in place, I'm ready to start the part that I love: implementing the interpreter itself!</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Parsing in Go, showing in Wails</title>
         <author>
