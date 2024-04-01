@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-01T15:55:02+02:00</updated>
+    <updated>2024-04-01T16:23:48+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -30,7 +30,7 @@
 <p>One potential benefit would be the ability to include Javascript lines of code directly in the tables, for example. But for now, I'll stick to the original plan.</p>
 <p>Every code sample shown in the previous posts is correctly parsed by the parser, and turned into a JSON object.</p>
 <pre><code>[</code><br><code>    older than 50</code><br><code>    = [detailed family]</code><br><code>        % #genre( #name age(#age) ) &amp;( #age &gt; 50 )</code><br><code>        : #name( #genre #age years old )</code><br><code>    | Pedro( man 66 years old )</code><br><code>    | Alma( woman 62 years old )</code><br><code>]</code></pre>
-<p>This result in the following structure.</p>
+<p>This results in the following structure.</p>
 <pre id="output" class="">[
   {
     TableName: 'older than 50',
@@ -232,7 +232,7 @@
   }
 ]</pre>
 <p>Notice how the first part of a formula gets turned into a <code>Produce</code> operation.</p>
-<p>The platform is still Wails, but the target is now Javascript, probably using Web Workers to keep the UI perfectly reactive. With everything in place, I'm ready to start the part that I love: implementing the interpreter itself!</p>
+<p>The platform is still Wails, but the target is now Javascript - probably in a Web Worker to keep the UI perfectly reactive. With everything in place, I'm ready to start the part that I love: implementing the interpreter itself!</p>
             ]]>
         </content>
     </entry>
