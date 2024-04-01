@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-01T20:43:12+02:00</updated>
+    <updated>2024-04-01T23:43:41+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -243,7 +243,7 @@
 <hr>
 <p>I'm adding a new Merge operator <code>"</code>, the purpose of which is to join tables on a per value basis.</p>
 <pre><code>[ c | 1 | 2 | 3 | 3 | 4 ]</code><br><code>[ d | 5 | bar | moo mew ]</code><br><br><code>[</code><br><code>    merging c and d</code><br><code>    = c " d</code><br><code>    | 1 5</code><br><code>    | 2 bar</code><br><code>    | 3 moo mew</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code></pre>
-<p>Now I think I used all the characters available to people using typical QWERTY keyboards.</p>
+<p>Now I believe the list of operators should be complete.</p>
             ]]>
         </content>
     </entry>
