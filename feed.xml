@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-01T16:23:48+02:00</updated>
+    <updated>2024-04-01T20:13:12+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -233,6 +233,10 @@
 ]</pre>
 <p>Notice how the first part of a formula gets turned into a <code>Produce</code> operation.</p>
 <p>The platform is still Wails, but the target is now Javascript - probably in a Web Worker to keep the UI perfectly reactive. With everything in place, I'm ready to start the part that I love: implementing the interpreter itself!</p>
+<hr>
+<p>I'm adding a new Merge operator <code>"</code>, the purpose of which is to concatenate tables on a per value basis.</p>
+<pre><code>[ c | 1 | 2 | 3 | 3 | 4 ]</code><br><code>[ d | 5 | bar | moo mew ]</code><br><br><code>[</code><br><code>    merging a and b</code><br><code>    = c " d</code><br><code>    | 1 5</code><br><code>    | 2 bar</code><br><code>    | 3 moo mew</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code></pre>
+<p>Now I think I used all the characters available to people using typical keyboards.</p>
             ]]>
         </content>
     </entry>
