@@ -14,14 +14,14 @@
             "url": "https://botbreeder.github.io/bells-and-whistles-et-caetera.html",
             "title": "Bells and whistles et caetera",
             "summary": "I couldn't start working on the interpreter without getting comfortable first... So I added a few things to the interface. Code editors driven by Codemirror, a proper syntax highlighter (which still doesn't catch a few edge cases), and even a fancy little scrollmap on the&hellip;",
-            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\"  data-is-empty=\"false\" data-translation=\"Add images\" data-columns=\"1\">\n<figure class=\"gallery__item\"><a href=\"https://botbreeder.github.io/media/posts/13/gallery/wip-interface.PNG\" data-size=\"1920x1080\"><img loading=\"lazy\" src=\"https://botbreeder.github.io/media/posts/13/gallery/wip-interface-thumbnail.PNG\" alt=\"Screenshot of the WIP on the interface\" width=\"720\" height=\"405\"></a></figure>\n</div></div>\n<p>I couldn't start working on the interpreter without getting comfortable first... So I added a few things to the interface. Code editors driven by <a href=\"https://codemirror.net/5/\" target=\"_blank\" rel=\"noopener noreferrer\">Codemirror</a>, a proper syntax highlighter (which still doesn't catch a few edge cases), and even a fancy little scrollmap on the right-hand side of the screen, thanks to <a href=\"https://larsjung.de/pagemap/\" target=\"_blank\" rel=\"noopener noreferrer\">Pagemap</a>.</p>\n<p>I know I'll be tweaking this... like, forever. But now I can start setting up the interpreter!</p>",
+            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\"  data-is-empty=\"false\" data-translation=\"Add images\" data-columns=\"1\">\n<figure class=\"gallery__item\"><a href=\"https://botbreeder.github.io/media/posts/13/gallery/wip-interface.PNG\" data-size=\"1920x1080\"><img loading=\"lazy\" src=\"https://botbreeder.github.io/media/posts/13/gallery/wip-interface-thumbnail.PNG\" alt=\"Screenshot of the WIP on the interface\" width=\"720\" height=\"405\"></a></figure>\n</div></div>\n<p>I couldn't start working on the interpreter without getting comfortable first... So I added a few things to the interface. Code editors driven by <a href=\"https://codemirror.net/5/\" target=\"_blank\" rel=\"noopener noreferrer\">Codemirror</a>, a proper syntax highlighter (which still doesn't catch a few edge cases), and even a fancy little scrollmap on the right-hand side of the screen, thanks to <a href=\"https://larsjung.de/pagemap/\" target=\"_blank\" rel=\"noopener noreferrer\">Pagemap</a>.</p>\n<p>I know I'll be tweaking this... like, forever. But now I can start setting up the interpreter!</p>\n<p>Oh, and I added comments to the parser. Oldie goldies, <code>/* ... */</code> and <code>// ...</code> </p>",
             "author": {
                 "name": "Julien Laguerre"
             },
             "tags": [
             ],
             "date_published": "2024-04-08T16:35:44+02:00",
-            "date_modified": "2024-04-08T16:43:35+02:00"
+            "date_modified": "2024-04-08T16:51:44+02:00"
         },
         {
             "id": "https://botbreeder.github.io/parsing-in-javascript-after-all.html",
