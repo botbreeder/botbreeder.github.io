@@ -3,12 +3,35 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-08T16:51:44+02:00</updated>
+    <updated>2024-04-14T12:39:12+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Base structure</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/base-structure.html"/>
+        <id>https://botbreeder.github.io/base-structure.html</id>
+
+        <updated>2024-04-14T12:39:12+02:00</updated>
+            <summary>
+                <![CDATA[
+                    Yet another load of cosmetic details here and there, so many that I don't count them anymore. But... I also worked on the main thing. So I have a basic structure that now works correctly, and while the UI code is all wild and organic,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Yet another load of cosmetic details here and there, so many that I don't count them anymore. But...</p>
+<p>I also worked on the main thing. So I have a basic structure that now works correctly, and while the UI code is all wild and organic, the engine code is well structured and commented JSDoc style. Programming "correctly" is surprisingly more error prone than my natural code-fu, but I finally eradicated all those nasty little bugs.</p>
+<p>Now, the structure is as follows. Tables are associated with spaces, and names. Names are not unique to tables since several tables can have the same name. Spaces are either "exposed" or not. Exposed spaces are the ones that are visible outside the engine. This is where you'd plug any external device, and where the UI is connected. Exposed means, "read/write accessible from the outside."</p>
+<p>You register callback functions to expose a space, then when the tables in that space change, the callback is called, either with a text version of the content, or with the AST. Simple.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Bells and whistles et caetera</title>
         <author>
@@ -535,26 +558,6 @@
 <p>When I work with complex software, I always struggle with the UI to find what I need, because the controls are scattered all around the central area, and often hidden behind menus or dropdowns. Here, I decided to put every control in a panel on the left-hand side of the screen, because I find it easier to merely scroll until I get what I'm looking for.</p>
 <p>Then the main area is occupied by workspaces, ready to receive code editors, graphs or 3D visualizers, editable markdown viewers, etc. There again, the user just have to scroll in order to reach them.</p>
 <p>My idea is that of a Jupyter style notebook, but in the shape of an outliner. An outliner is basically a recursively folding container, and I don't have that implemented yet. It might be my next move.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Here we go</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/here-we-go.html"/>
-        <id>https://botbreeder.github.io/here-we-go.html</id>
-
-        <updated>2024-02-11T17:04:07+01:00</updated>
-            <summary>
-                <![CDATA[
-                    Everything has to start somewhere.
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Everything has to start somewhere.</p>
             ]]>
         </content>
     </entry>
