@@ -3,12 +3,36 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-14T23:28:13+02:00</updated>
+    <updated>2024-04-15T18:12:51+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Meta</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/meta.html"/>
+        <id>https://botbreeder.github.io/meta.html</id>
+
+        <updated>2024-04-15T17:57:09+02:00</updated>
+            <summary>
+                <![CDATA[
+                    I could look at my design and call it a day, but there's one thing I'm definitely not satisfied with. Hup is all oriented towards the description of high-level "mental" operations. You can't parse a string of characters, or even just print a mere "hello&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I could look at my design and call it a day, but there's one thing I'm definitely not satisfied with.</p>
+<p>Hup is all oriented towards the description of high-level "mental" operations. You can't parse a string of characters, or even just print a mere "hello world" to the screen. (Well yeah, you can.) But where Hup shines is elsewhere. It's vastly superior to any kind of supercharged Behavior Tree I've seen here and there, even to <a href="https://plexil-group.github.io/plexil_docs/" target="_blank" rel="noopener noreferrer">Plexil</a>, and it's so friendly and pragmatic compared to Prolog. So clearly this is our target here, high-level stuff, mental behaviors themselves.</p>
+<p>But Hup's weakness, as it is today, is metaprogramming. Sure you can have tables generating tables on the fly, and you can also switch from state-thinking to event-thinking using the natural recursion capability of formulas. But it doesn't mean it would be easy to write programs that evolve, and I don't like it. I want more.</p>
+<p>Let me explain what we can do now. We can have tables which generate values which are other tables. These other tables are first class citizens too, no problem. Another thing we can do is using recursion to make values evolve over time by themselves, for example <code>[ one more = [one more] 1 | 1 ]</code> would keep adding ones to its list of values.</p>
+<p>But meta is another thing entirely. It's about structural, it's about runtime mutation. I don't know. I have this idea of "meta-tables" in the back of my head for some time now. A meta-table would obviously contain data about a regular table. I don't know if <em>that</em> idea of meta-tables and <em>this</em> desire of metaprogramming are somehow related. All I know is that I'm not done yet.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Base structure</title>
         <author>
@@ -539,29 +563,6 @@
 <p>I've added a small command line at the bottom of the screen for power users (e.g., me). Everything should be doable from UI elements alone, and from the command line alone. It should also be possible to create custom commands. Hitting the spacebar gives you instant focus on the command line, and you're ready to type in.</p>
 <p>Finally, there's now a toolbar at the top of the screen. It's meant to provide quick access to different toolboxes in the left-hand side panel. I thought it would be handy to always have it on screen.</p>
 <p>For both the command line and the toolbar, I used the excellent CSS library <a href="http://augmented-ui.com/" target="_blank" rel="noopener noreferrer">augmented-ui</a> to get those nice diagonal shapes. All in all, the entire thing doesn't look as futuristic as I was planning, but it's still easy on the eye so, I'm satisfied.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Interface</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/interface.html"/>
-        <id>https://botbreeder.github.io/interface.html</id>
-
-        <updated>2024-02-15T16:51:04+01:00</updated>
-            <summary>
-                <![CDATA[
-                    Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to.</p>
-<p>When I work with complex software, I always struggle with the UI to find what I need, because the controls are scattered all around the central area, and often hidden behind menus or dropdowns. Here, I decided to put every control in a panel on the left-hand side of the screen, because I find it easier to merely scroll until I get what I'm looking for.</p>
-<p>Then the main area is occupied by workspaces, ready to receive code editors, graphs or 3D visualizers, editable markdown viewers, etc. There again, the user just have to scroll in order to reach them.</p>
-<p>My idea is that of a Jupyter style notebook, but in the shape of an outliner. An outliner is basically a recursively folding container, and I don't have that implemented yet. It might be my next move.</p>
             ]]>
         </content>
     </entry>

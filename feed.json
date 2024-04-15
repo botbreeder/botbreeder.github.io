@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://botbreeder.github.io/meta.html",
+            "url": "https://botbreeder.github.io/meta.html",
+            "title": "Meta",
+            "summary": "I could look at my design and call it a day, but there's one thing I'm definitely not satisfied with. Hup is all oriented towards the description of high-level \"mental\" operations. You can't parse a string of characters, or even just print a mere \"hello&hellip;",
+            "content_html": "<p>I could look at my design and call it a day, but there's one thing I'm definitely not satisfied with.</p>\n<p>Hup is all oriented towards the description of high-level \"mental\" operations. You can't parse a string of characters, or even just print a mere \"hello world\" to the screen. (Well yeah, you can.) But where Hup shines is elsewhere. It's vastly superior to any kind of supercharged Behavior Tree I've seen here and there, even to <a href=\"https://plexil-group.github.io/plexil_docs/\" target=\"_blank\" rel=\"noopener noreferrer\">Plexil</a>, and it's so friendly and pragmatic compared to Prolog. So clearly this is our target here, high-level stuff, mental behaviors themselves.</p>\n<p>But Hup's weakness, as it is today, is metaprogramming. Sure you can have tables generating tables on the fly, and you can also switch from state-thinking to event-thinking using the natural recursion capability of formulas. But it doesn't mean it would be easy to write programs that evolve, and I don't like it. I want more.</p>\n<p>Let me explain what we can do now. We can have tables which generate values which are other tables. These other tables are first class citizens too, no problem. Another thing we can do is using recursion to make values evolve over time by themselves, for example <code>[ one more = [one more] 1 | 1 ]</code> would keep adding ones to its list of values.</p>\n<p>But meta is another thing entirely. It's about structural, it's about runtime mutation. I don't know. I have this idea of \"meta-tables\" in the back of my head for some time now. A meta-table would obviously contain data about a regular table. I don't know if <em>that</em> idea of meta-tables and <em>this</em> desire of metaprogramming are somehow related. All I know is that I'm not done yet.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-04-15T17:57:09+02:00",
+            "date_modified": "2024-04-15T18:12:51+02:00"
+        },
+        {
             "id": "https://botbreeder.github.io/base-structure.html",
             "url": "https://botbreeder.github.io/base-structure.html",
             "title": "Base structure",
@@ -134,20 +148,6 @@
             ],
             "date_published": "2024-02-19T09:55:05+01:00",
             "date_modified": "2024-03-15T00:07:36+01:00"
-        },
-        {
-            "id": "https://botbreeder.github.io/interface.html",
-            "url": "https://botbreeder.github.io/interface.html",
-            "title": "Interface",
-            "summary": "Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want&hellip;",
-            "content_html": "<p>Starting from the end, I wanted to try a certain type of UI, very minimalistic, before I jump into the core concepts of whatever I'm about to do. I've been experimenting for 2 weeks, and now have a UI draft that looks how I want it to.</p>\n<p>When I work with complex software, I always struggle with the UI to find what I need, because the controls are scattered all around the central area, and often hidden behind menus or dropdowns. Here, I decided to put every control in a panel on the left-hand side of the screen, because I find it easier to merely scroll until I get what I'm looking for.</p>\n<p>Then the main area is occupied by workspaces, ready to receive code editors, graphs or 3D visualizers, editable markdown viewers, etc. There again, the user just have to scroll in order to reach them.</p>\n<p>My idea is that of a Jupyter style notebook, but in the shape of an outliner. An outliner is basically a recursively folding container, and I don't have that implemented yet. It might be my next move.</p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-02-15T16:51:04+01:00",
-            "date_modified": "2024-03-15T00:16:30+01:00"
         }
     ]
 }
