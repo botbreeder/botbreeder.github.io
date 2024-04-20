@@ -3,12 +3,34 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-15T18:12:51+02:00</updated>
+    <updated>2024-04-20T16:45:56+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Closing the loop</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/closing-the-loop.html"/>
+        <id>https://botbreeder.github.io/closing-the-loop.html</id>
+
+        <updated>2024-04-20T16:44:45+02:00</updated>
+            <summary>
+                <![CDATA[
+                    I'm ready for relocation. The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! The sum, is happening now in Hup. It works. Other operators&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I'm ready for relocation.</p>
+<p>The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! The sum, is happening now in Hup. It works. Other operators won't need a lot of work, so I'm rather focusing on the other part of the loop, the feedback. To implement feedback, I want source code generation to be comments and newlines aware. So I'll modify the parser to make a "shape aware" version of it. Basically, everything in tables' values will be wiped out (because how would I choose where each comment would survive), and everything else will stay the same. The only thing I'll keep from values is whether they are all on the same line, or each on a line of its own.</p>
+<p>I can feel the part of me that doesn't want to go further. It's not happy.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Meta</title>
         <author>
@@ -540,29 +562,6 @@
 <p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>
 <pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 1 * 2</code><br><code>    | 22</code><br><code>    | 42</code><br><code>    | 62</code><br><code>]</code></pre>
 <p>Thus the network of tables is an event driven medium, through which mutations propagate.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Cmdline &amp; toolbar</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/cmdline-and-toolbar.html"/>
-        <id>https://botbreeder.github.io/cmdline-and-toolbar.html</id>
-
-        <updated>2024-02-19T09:55:05+01:00</updated>
-            <summary>
-                <![CDATA[
-                    I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously. I've added a small command line at the&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously.</p>
-<p>I've added a small command line at the bottom of the screen for power users (e.g., me). Everything should be doable from UI elements alone, and from the command line alone. It should also be possible to create custom commands. Hitting the spacebar gives you instant focus on the command line, and you're ready to type in.</p>
-<p>Finally, there's now a toolbar at the top of the screen. It's meant to provide quick access to different toolboxes in the left-hand side panel. I thought it would be handy to always have it on screen.</p>
-<p>For both the command line and the toolbar, I used the excellent CSS library <a href="http://augmented-ui.com/" target="_blank" rel="noopener noreferrer">augmented-ui</a> to get those nice diagonal shapes. All in all, the entire thing doesn't look as futuristic as I was planning, but it's still easy on the eye so, I'm satisfied.</p>
             ]]>
         </content>
     </entry>

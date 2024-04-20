@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://botbreeder.github.io/closing-the-loop.html",
+            "url": "https://botbreeder.github.io/closing-the-loop.html",
+            "title": "Closing the loop",
+            "summary": "I'm ready for relocation. The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! The sum, is happening now in Hup. It works. Other operators&hellip;",
+            "content_html": "<p>I'm ready for relocation.</p>\n<p>The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! The sum, is happening now in Hup. It works. Other operators won't need a lot of work, so I'm rather focusing on the other part of the loop, the feedback. To implement feedback, I want source code generation to be comments and newlines aware. So I'll modify the parser to make a \"shape aware\" version of it. Basically, everything in tables' values will be wiped out (because how would I choose where each comment would survive), and everything else will stay the same. The only thing I'll keep from values is whether they are all on the same line, or each on a line of its own.</p>\n<p>I can feel the part of me that doesn't want to go further. It's not happy.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-04-20T16:44:45+02:00",
+            "date_modified": "2024-04-20T16:45:56+02:00"
+        },
+        {
             "id": "https://botbreeder.github.io/meta.html",
             "url": "https://botbreeder.github.io/meta.html",
             "title": "Meta",
@@ -134,20 +148,6 @@
             ],
             "date_published": "2024-03-11T00:51:07+01:00",
             "date_modified": "2024-03-19T14:57:39+01:00"
-        },
-        {
-            "id": "https://botbreeder.github.io/cmdline-and-toolbar.html",
-            "url": "https://botbreeder.github.io/cmdline-and-toolbar.html",
-            "title": "Cmdline &amp; toolbar",
-            "summary": "I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously. I've added a small command line at the&hellip;",
-            "content_html": "<p>I'm ditching the outliner idea, as on second thought it is unclear how the interface would need to be manipulated. Instead, I'll rely on views, which are selections of workspaces that the user wants to see simultaneously.</p>\n<p>I've added a small command line at the bottom of the screen for power users (e.g., me). Everything should be doable from UI elements alone, and from the command line alone. It should also be possible to create custom commands. Hitting the spacebar gives you instant focus on the command line, and you're ready to type in.</p>\n<p>Finally, there's now a toolbar at the top of the screen. It's meant to provide quick access to different toolboxes in the left-hand side panel. I thought it would be handy to always have it on screen.</p>\n<p>For both the command line and the toolbar, I used the excellent CSS library <a href=\"http://augmented-ui.com/\" target=\"_blank\" rel=\"noopener noreferrer\">augmented-ui</a> to get those nice diagonal shapes. All in all, the entire thing doesn't look as futuristic as I was planning, but it's still easy on the eye so, I'm satisfied.</p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-02-19T09:55:05+01:00",
-            "date_modified": "2024-03-15T00:07:36+01:00"
         }
     ]
 }
