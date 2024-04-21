@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-21T10:54:34+02:00</updated>
+    <updated>2024-04-21T13:24:33+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -20,12 +20,12 @@
         <updated>2024-04-20T16:44:45+02:00</updated>
             <summary>
                 <![CDATA[
-                    The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! When a table's values change, all the tables that watch the name of this changing&hellip;
+                    The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! When a table's values change, all the tables that watch its name get properly recalculated.
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <p>The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! When a table's values change, all the tables that watch the name of this changing table's get properly recalculated.</p>
+                <p>The loop is the propagation of changes between the user and the system. The input side of the loop is implemented, and I had the joy to witness a sum! When a table's values change, all the tables that watch its name get properly recalculated.</p>
 <p>So the sum is now happening in Hup. Other operators won't need a lot of work, so I'm rather focusing on the other part of the loop, the feedback. To implement feedback, I want source code generation to be comments and newlines aware. So I'll modify the parser to make a "shape aware" version of it. Basically, everything in tables' values will be wiped out (because how would I choose where each comment would survive), and everything else will stay the same. The only thing I'll keep from values is whether they are all on the same line, or each on a line of its own.</p>
 <p>I can feel the part of me that doesn't want to go further. It's not happy.</p>
             ]]>
