@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-04-25T09:51:01+02:00</updated>
+    <updated>2024-04-25T09:56:51+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -26,7 +26,7 @@
         <content type="html">
             <![CDATA[
                 <p>It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated.</p>
-<p>I even had to reshape the syntax parser a little bit. Indeed, the value part of a table was accepting lists of items, for example <code>| 1 2 3 | 4 5 6  </code> but the meaning was unclear. Now the value of a table is not a list of list anymore, but just a list. We can still use parentheses to create lists of lists of course.</p>
+<p>I even had to reshape the syntax parser a little bit. Indeed, the value part of a table was accepting lists of items, for example <code>| 1 2 3 | 4 5 6  </code> but the meaning was unclear. Now the value of a table is not a list of lists anymore, but just a list. We can still use parentheses to create lists of lists of course.</p>
 <p>At first, the tables would mutate even while you create them, which was a bit weird. So I changed that, and now a space that's currently being modified by the user is marked as "suspended", so no mutation happen during edition.</p>
 <p>I'm about to implement a few more operators and start playing around with my shiny new toy.</p>
             ]]>

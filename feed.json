@@ -14,14 +14,14 @@
             "url": "https://botbreeder.github.io/40-miles-of-bad-road.html",
             "title": "40 miles of bad road",
             "summary": "It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated. I even&hellip;",
-            "content_html": "<p>It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated.</p>\n<p>I even had to reshape the syntax parser a little bit. Indeed, the value part of a table was accepting lists of items, for example <code>| 1 2 3 | 4 5 6  </code> but the meaning was unclear. Now the value of a table is not a list of list anymore, but just a list. We can still use parentheses to create lists of lists of course.</p>\n<p>At first, the tables would mutate even while you create them, which was a bit weird. So I changed that, and now a space that's currently being modified by the user is marked as \"suspended\", so no mutation happen during edition.</p>\n<p>I'm about to implement a few more operators and start playing around with my shiny new toy.</p>",
+            "content_html": "<p>It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated.</p>\n<p>I even had to reshape the syntax parser a little bit. Indeed, the value part of a table was accepting lists of items, for example <code>| 1 2 3 | 4 5 6  </code> but the meaning was unclear. Now the value of a table is not a list of lists anymore, but just a list. We can still use parentheses to create lists of lists of course.</p>\n<p>At first, the tables would mutate even while you create them, which was a bit weird. So I changed that, and now a space that's currently being modified by the user is marked as \"suspended\", so no mutation happen during edition.</p>\n<p>I'm about to implement a few more operators and start playing around with my shiny new toy.</p>",
             "author": {
                 "name": "Julien Laguerre"
             },
             "tags": [
             ],
             "date_published": "2024-04-25T09:44:01+02:00",
-            "date_modified": "2024-04-25T09:51:01+02:00"
+            "date_modified": "2024-04-25T09:56:51+02:00"
         },
         {
             "id": "https://botbreeder.github.io/closing-the-loop.html",
