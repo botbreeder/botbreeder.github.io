@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://botbreeder.github.io/40-miles-of-bad-road.html",
+            "url": "https://botbreeder.github.io/40-miles-of-bad-road.html",
+            "title": "40 miles of bad road",
+            "summary": "It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated. I even&hellip;",
+            "content_html": "<p>It's been a long way. At some point, I thought I'd never reach the other end of the tunnel. But I did. More infrastructure was needed to support the complete cycle, input / calculus / output. There were also subtle bugs, now eradicated.</p>\n<p>I even had to reshape the syntax parser a little bit. Indeed, the value part of a table was accepting lists of items, for example <code>| 1 2 3 | 4 5 6  </code> but the meaning was unclear. Now the value of a table is not a list of list anymore, but just a list. We can still use parentheses to create lists of lists of course.</p>\n<p>At first, the tables would mutate even while you create them, which was a bit weird. So I changed that, and now a space that's currently being modified by the user is marked as \"suspended\", so no mutation happen during edition.</p>\n<p>I'm about to implement a few more operators and start playing around with my shiny new toy.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-04-25T09:44:01+02:00",
+            "date_modified": "2024-04-25T09:51:01+02:00"
+        },
+        {
             "id": "https://botbreeder.github.io/closing-the-loop.html",
             "url": "https://botbreeder.github.io/closing-the-loop.html",
             "title": "Closing the loop",
@@ -134,20 +148,6 @@
             ],
             "date_published": "2024-03-14T10:04:13+01:00",
             "date_modified": "2024-03-25T16:05:16+01:00"
-        },
-        {
-            "id": "https://botbreeder.github.io/hup.html",
-            "url": "https://botbreeder.github.io/hup.html",
-            "title": "Hup, a scripting language",
-            "summary": "This is a stack. 1 2 3 And this is how you add 1 to each item of this stack. 1 2 3 + 1 The result of this expression is another stack. 2 3 4 There is no operator precedence. Instead, everything is left&hellip;",
-            "content_html": "<p>This is a stack.</p>\n<pre><code>1 2 3</code></pre>\n<p>And this is how you add 1 to each item of this stack.</p>\n<pre><code>1 2 3 + 1</code></pre>\n<p>The result of this expression is another stack.</p>\n<pre><code>2 3 4</code></pre>\n<p>There is no operator precedence. Instead, everything is left associative.</p>\n<pre><code>1 2 3 + 1 * 2</code></pre>\n<p>This expression means <code>(1 2 3 + 1) * 2</code>, which results in:</p>\n<pre><code>4 6 8</code></pre>\n<hr>\n<p>Now this is a term. Its predicate is the atom \"<code>a</code>\", and it has 2 arguments: the atom \"<code>b</code>\" and the atom \"<code>c</code>\".</p>\n<pre><code>a(b c)</code></pre>\n<p>When an expression is given in a compound term, the expression is first resolved, before the term receives the resulting stack items as arguments.</p>\n<pre><code>P(1 2 3 + 1 * 2)</code></pre>\n<p>This is equivalent to:</p>\n<pre><code>P(4 6 8)</code></pre>\n<p>We'll get back to terms in another post.</p>\n<hr>\n<p>Now, this is a table.</p>\n<pre><code>[ ]</code></pre>\n<p>A table may have a name, a formula, and values obtained by evaluating the formula. The formula is preceded by equal \"<code>=</code>\" and each value is preceded by a vertical bar \"<code>|</code>\".</p>\n<pre><code>[ example = 1 2 3 + 1 * 2 | 4 | 6 | 8 ]</code></pre>\n<p>Whitespace characters are insignificant.</p>\n<pre><code>[<br>    example<br>    = 1 2 3 + 1 * 2<br>    | 4<br>    | 6<br>    | 8<br>]</code></pre>\n<p>The formula is optional. A table without formula is a constant table.</p>\n<pre><code>[<br>    some numbers<br>    | 1<br>    | 2<br>    | 3<br>]</code></pre>\n<p>A table's formula can reference values from other tables. The names of referenced tables are enclosed in square brackets.</p>\n<pre><code>[</code><br><code>    example</code><br><code>    = [some numbers] + 1 * 2</code><br><code>    | 4</code><br><code>    | 6</code><br><code>    | 8</code><br><code>]</code></pre>\n<p>When the values of a referenced table change, the values of the referencing tables are recalculated to reflect the changes. If <code>[some numbers]</code> becomes <code>10 20 30</code>, then <code>[example]</code> will automatically be updated.</p>\n<pre><code>[ some numbers | 10 | 20 | 30 ]</code><br><code>[</code><br><code>    example = [some numbers] + 1 * 2</code><br><code>    | 22</code><br><code>    | 42</code><br><code>    | 62</code><br><code>]</code></pre>\n<p>Thus the network of tables is an event driven medium, through which mutations propagate.</p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-03-11T00:51:07+01:00",
-            "date_modified": "2024-03-19T14:57:39+01:00"
         }
     ]
 }
