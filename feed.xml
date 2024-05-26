@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-05-24T17:05:49+02:00</updated>
+    <updated>2024-05-26T22:08:28+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -31,7 +31,7 @@
 <ul>
 <li>The syntax is irregular, so I’ll change it to something closer to LISP, except it’s <code>a(b c d)</code> instead of <code>(a b c d)</code>,</li>
 <li>I can’t refer to tables through variables, I want to make it possible,</li>
-<li>There’s no macros, I want hygienic macros, + what I call “brushes”, that is, macros on steroids for highly redundant graphs,</li>
+<li>There’s no macros, I want macros + what I call “brushes”, that is, macros on steroids for highly redundant graphs,</li>
 <li>There’s no access to low-level stuff, I want a way to do simple things like manipulating strings for instance,</li>
 <li>It lacks some high-level specialized functionalities through libraries, namely 3D and ANN,</li>
 <li>It’s not very fast, I want to implement it in another language.</li>
