@@ -3,7 +3,7 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-06-08T17:57:25+02:00</updated>
+    <updated>2024-06-08T19:59:48+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
@@ -20,15 +20,13 @@
         <updated>2024-05-30T13:58:24+02:00</updated>
             <summary>
                 <![CDATA[
-                    WIP on style I need to lay down the foundation of what I'm about to do. The new stack is like, The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle,&hellip;
+                    I need to lay down the foundation of what I'm about to do. The new stack is like, The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                 <div class="gallery-wrapper"><div class="gallery"  data-is-empty="false" data-translation="Add images" data-columns="1">
-<figure class="gallery__item"><a href="https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash.png" data-size="1415x927"><img loading="lazy" src="https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash-thumbnail.png" alt="UI elements test" width="720" height="472"></a>
-<figcaption>WIP on style</figcaption>
-</figure>
+<figure class="gallery__item"><a href="https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash.png" data-size="1415x927"><img loading="lazy" src="https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash-thumbnail.png" alt="UI elements test" width="720" height="472"></a></figure>
 </div></div>
 <p>I need to lay down the foundation of what I'm about to do.</p>
 <hr>
