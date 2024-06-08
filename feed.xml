@@ -3,12 +3,52 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-05-26T22:08:28+02:00</updated>
+    <updated>2024-06-08T17:28:05+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>Back to the drawing board with a fresh stack</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/back-to-the-drawing-board.html"/>
+        <id>https://botbreeder.github.io/back-to-the-drawing-board.html</id>
+
+        <updated>2024-05-30T13:58:24+02:00</updated>
+            <summary>
+                <![CDATA[
+                    I need to lay down the foundation of what I'm about to do. The new stack is like, The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>I need to lay down the foundation of what I'm about to do.</p>
+<hr>
+<p>The new stack is like,</p>
+<ul style="list-style-type: square;">
+<li><a href="https://getuikit.com" target="_blank" rel="noopener noreferrer">UIKit</a>, in a custom dark mode that's a little bit more aggressive than the previous frontend style, griddy background, and a few cyberpunk flash colors.</li>
+<li><a href="http://github.com/cferdinandi/reef" target="_blank" rel="noopener noreferrer">Reef</a>, gives me lightweight UI reactivity,</li>
+<li><a href="https://d3js.org" target="_blank" rel="noopener noreferrer">D3</a>, will be used both to construct the new interface (more on this below), and to power the inevitable graphs and visualizations users could want.</li>
+<li><a href="https://supabase.com" target="_blank" rel="noopener noreferrer">Supabase</a>, even though the app is intended to be fully usable offline, I need online realtime capabilities, because I'm also going to use Hup for a project in my dayjob.</li>
+</ul>
+<hr>
+<p>The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and the like, to adults who are modifying the trajectory of their career, and who are not necessarily comfortable with a computer. It's ideal to see what works and what doesn't, in terms of UX design.</p>
+<p>But Hup is not meant for them. It's meant for me, to monitor their progression through the pedagogical material, in realtime.</p>
+<p>What problem does Hup solve? Trello doesn't do heavy math&amp;graph, Excel doesn't do the fancy cards drag'n drop, and neither of them do symbolic processing à la Prolog nor list processing à la Lisp, nor network flow-based programming. There's a hole in the universe that has the shape of Hup.</p>
+<hr>
+<p>The new syntax is very simple and regular. It goes like:</p>
+<pre>a(b c d)</pre>
+<p>Which is equivalent to:</p>
+<pre>[a b c d]</pre>
+<p>It translates like this:</p>
+<pre>old syntax: 1 2 3 + 4 5 6<br>new syntax: list(1 2 3) add(4 5 6)</pre>
+<p>It looks less elegant at first, but it will allow a lot more things to be expressed, so it's definitely worth the verbosity. And it's not that bad, for an s-exp derivative. Probably more dev-friendly for people used to curlies anyway.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Overhaul</title>
         <author>
@@ -442,47 +482,6 @@
 <figure class="post__image"><img loading="lazy"  src="https://botbreeder.github.io/media/posts/11/parser-first-step.PNG" alt="Screen capture of a successful parsing" width="496" height="492" sizes="(max-width: 48em) 100vw, 768px" srcset="https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w"></figure>
 <p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>
 <p>Yeah, 3 × 5 = 15... it's show time 🤩</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Hup, design considerations</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/hup-design-considerations.html"/>
-        <id>https://botbreeder.github.io/hup-design-considerations.html</id>
-
-        <updated>2024-03-19T14:34:18+01:00</updated>
-            <summary>
-                <![CDATA[
-                    Right now, nothing has been said about: Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature. A table name represents a stack of values,&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Right now, nothing has been said about:</p>
-<ul style="list-style-type: square;">
-<li>What to do when multiple tables have the same name,</li>
-<li>Error handling,</li>
-<li>User-defined functions or operators,</li>
-<li>Implementation details.</li>
-</ul>
-<hr>
-<p>Multiple tables having the same name can be seen as a problem (which would lead to a namespace-based solution) or as a feature. I prefer to make it a feature<span style="color: var(--text-primary-color); font-family: var(--editor-font-family); font-size: inherit; font-weight: var(--font-weight-normal);">. A table name represents a stack of values, potentially calculated by several formulas (if several tables have the same name). When a formula is recalculated, the old values are deleted from the stack and the new values are pushed onto it. So the user can always expect a table name to represent values in chronological order of update.</span></p>
-<p>Since tables can generate and host other tables, table names can be qualified by path, using a filesystem metaphor. For example, <code>parent/table</code> would mean the table named <code>table</code> that's inside the table named <code>parent</code>.</p>
-<hr>
-<p>I don't want to make error handling a cause of flow disruption. Instead, the system should be able to continue to work as best as it can, while isolating errors to prevent propagation, and having them be part of the current situation by logging them in dedicated error tables.</p>
-<p>As a rule of thumb, when the evaluation of a formula produces an error, the result of that formula is merely an empty list. The built-in <code>ERR</code> table receives a formatted entry about the error. Errors can then be manually handled by the user.</p>
-<hr>
-<p>User-defined functions are defined in tables. The name of the table is the signature of the function, and the unique value of the table is the body of the function.</p>
-<p>User-defined functions always begin with a period "<code>.</code>" character, and are followed by parentheses which receive the arguments, each preceded by a "<code>#</code>" character. The function name's first character is a lowercase letter.</p>
-<pre>[ .sqr() | # * # ]<br><br>[<br>    squared units<br>    = [units] .sqr()<br>    | 1<br>    | 4<br>    | 9<br>]<br><br>[ .pow(#power) | (#) &amp; #power \* ]<br><br>[<br>    units to the third<br>    = [units] .pow(3)<br>    | 1<br>    | 8<br>    | 27<br>]</pre>
-<p>Remember that evaluation goes from left to right, everything being left-associative. In the body of a user-defined function, a single "<code>#</code>" character represents the values-so-far, or the "previous" operand. If the function was an infix operator, we could say that "<code>#</code>" represents its left-hand side operand.</p>
-<p>You might be wondering why the "<code>#</code>" in the <code>pow()</code> function's body is between parentheses. That's because we want want to obtain <code>(1 2 3) * (1 2 3) * (1 2 3)</code> rather than <code>1 * 1 * 1 * 2 * 2 * 2 * 3 * 3 * 3</code>.</p>
-<hr>
-<p>I'm not yet sure of how all of this will be implemented. But the target language is Go (with Wails for the frontend), and goroutines are probably going to be used extensively.</p>
-<p>Oh snap, I know how it will be implemented. By typing on a keyboard with my hands which are fortunately full of fingers.</p>
             ]]>
         </content>
     </entry>
