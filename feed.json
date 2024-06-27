@@ -10,18 +10,32 @@
     },
     "items": [
         {
+            "id": "https://botbreeder.github.io/all-going-down.html",
+            "url": "https://botbreeder.github.io/all-going-down.html",
+            "title": "All going down",
+            "summary": "It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II? That's enough for me to jump off the window. Nous assistons, impuissants, à l'institutionnalisation de&hellip;",
+            "content_html": "<p>It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II?<br><br>That's enough for me to jump off the window.</p>\n<p>Nous assistons, impuissants, à l'institutionnalisation de la haine, dans un pays qui soudain se révèle, montre son vrai visage, celui de l'imbécillité anonyme et lâche de millions d'électeurs à la mémoire courte. Bande de crétins capricieux, de monstres irresponsables, vous mériteriez d'être pendus, vous qui osez insulter la chose politique, et vous qui venez parodier le concept de débat national à la télévision.</p>\n<p>Mais nous ne vous pendrons pas. Car nous, citoyens réfléchis, vous sommes supérieurs.</p>\n<p>Fuck.</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-06-27T22:45:34+02:00",
+            "date_modified": "2024-06-27T22:45:34+02:00"
+        },
+        {
             "id": "https://botbreeder.github.io/back-to-the-drawing-board.html",
             "url": "https://botbreeder.github.io/back-to-the-drawing-board.html",
             "title": "Back to the drawing board with a fresh stack",
             "summary": "I need to lay down the foundation of what I'm about to do. The new stack is like, The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and&hellip;",
-            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\"  data-is-empty=\"false\" data-translation=\"Add images\" data-columns=\"1\">\n<figure class=\"gallery__item\"><a href=\"https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash.png\" data-size=\"1415x927\"><img loading=\"lazy\" src=\"https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash-thumbnail.png\" alt=\"UI elements test\" width=\"720\" height=\"472\"></a></figure>\n</div></div>\n<p>I need to lay down the foundation of what I'm about to do.</p>\n<hr>\n<p>The new stack is like,</p>\n<ul style=\"list-style-type: square;\">\n<li><a href=\"https://getuikit.com\" target=\"_blank\" rel=\"noopener noreferrer\">UIKit</a>, in a custom dark mode that's a little bit more aggressive than the previous frontend style, griddy background, and a few cyberpunk flash colors.</li>\n<li><a href=\"http://github.com/cferdinandi/reef\" target=\"_blank\" rel=\"noopener noreferrer\">Reef</a>, gives me lightweight UI reactivity,</li>\n<li><a href=\"https://d3js.org\" target=\"_blank\" rel=\"noopener noreferrer\">D3</a>, will be used both to construct the new interface (more on this below), and to power the inevitable graphs and visualizations users could want.</li>\n<li><a href=\"https://supabase.com\" target=\"_blank\" rel=\"noopener noreferrer\">Supabase</a>, even though the app is intended to be fully usable offline, I need online realtime capabilities, because I'm also going to use Hup for a project in my dayjob.</li>\n</ul>\n<hr>\n<p>The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and the like, to adults who are modifying the trajectory of their career, and who are not necessarily comfortable with a computer. It's ideal to see what works and what doesn't, in terms of UX design.</p>\n<p>But Hup is not meant for them. It's meant for me, to monitor their progression through the pedagogical material, in realtime.</p>\n<p>What problem does Hup solve? Trello doesn't do heavy math&amp;graph, Excel doesn't do the fancy cards drag'n drop, and neither of them do symbolic processing à la Prolog nor list processing à la Lisp, nor network flow-based programming. There's a hole in the universe that has the shape of Hup.</p>\n<hr>\n<p>The new syntax is very simple and regular. It goes like:</p>\n<pre>a(b c d)</pre>\n<p>Which is equivalent to:</p>\n<pre>[a b c d]</pre>\n<p>It translates like this:</p>\n<pre>old syntax: 1 2 3 + 4 5 6<br>new syntax: list(1 2 3) add(4 5 6)</pre>\n<p>It looks less elegant at first, but it will allow a lot more things to be expressed, so it's definitely worth the verbosity. And it's not that bad, for an s-exp derivative. Probably more dev-friendly for people used to curlies anyway.</p>",
+            "content_html": "<div class=\"gallery-wrapper\"><div class=\"gallery\"  data-is-empty=\"false\" data-translation=\"Add images\" data-columns=\"1\">\n<figure class=\"gallery__item\"><a href=\"https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash.png\" data-size=\"1415x927\"><img loading=\"lazy\" src=\"https://botbreeder.github.io/media/posts/22/gallery/uikit-darkflash-thumbnail.png\" alt=\"UI elements test\" width=\"720\" height=\"472\"></a></figure>\n</div></div>\n<p>I need to lay down the foundation of what I'm about to do.</p>\n<hr>\n<p>The new stack is like,</p>\n<ul style=\"list-style-type: square;\">\n<li><a href=\"https://getuikit.com\" target=\"_blank\" rel=\"noopener noreferrer\">UIKit</a>, in a custom dark mode that's a little bit more aggressive than the previous frontend style, griddy background, and a few cyberpunk flash colors.</li>\n<li><a href=\"https://reefjs.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Reef</a>, gives me lightweight UI reactivity,</li>\n<li><a href=\"https://d3js.org\" target=\"_blank\" rel=\"noopener noreferrer\">D3</a>, will be used both to construct the new interface (more on this below), and to power the inevitable graphs and visualizations users could want.</li>\n<li><a href=\"https://supabase.com\" target=\"_blank\" rel=\"noopener noreferrer\">Supabase</a>, even though the app is intended to be fully usable offline, I need online realtime capabilities, because I'm also going to use Hup for a project in my dayjob.</li>\n</ul>\n<hr>\n<p>The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and the like, to adults who are modifying the trajectory of their career, and who are not always comfortable with a computer. It's ideal to see what works and what doesn't, in terms of UX design.</p>\n<p>But Hup is not meant for them. It's meant for me, to monitor their progression through the pedagogical material, in realtime.</p>\n<p>What problem does Hup solve? Trello doesn't do heavy math&amp;graph, Excel doesn't do the fancy cards drag'n drop, and neither of them do symbolic processing à la Prolog nor list processing à la Lisp, nor network flow-based programming. There's a hole in the universe that has the shape of Hup.</p>\n<hr>\n<p>The new syntax is very simple and regular. It goes like:</p>\n<pre>a(b c d)</pre>\n<p>Which is equivalent to:</p>\n<pre>[a b c d]</pre>\n<p>It translates like this:</p>\n<pre>old syntax: 1 2 3 + 4 5 6<br>new syntax: list(1 2 3) add(4 5 6)</pre>\n<p>It looks less elegant at first, but it will allow a lot more things to be expressed, so it's definitely worth the verbosity. And it's not that bad, for an s-exp derivative. Probably more dev-friendly for people used to curlies anyway.</p>",
             "author": {
                 "name": "Julien Laguerre"
             },
             "tags": [
             ],
             "date_published": "2024-05-30T13:58:24+02:00",
-            "date_modified": "2024-06-08T19:59:48+02:00"
+            "date_modified": "2024-06-10T11:31:08+02:00"
         },
         {
             "id": "https://botbreeder.github.io/overhaul.html",
@@ -134,20 +148,6 @@
             ],
             "date_published": "2024-04-01T15:55:02+02:00",
             "date_modified": "2024-04-01T23:43:41+02:00"
-        },
-        {
-            "id": "https://botbreeder.github.io/parsing-in-go-showing-in-wails.html",
-            "url": "https://botbreeder.github.io/parsing-in-go-showing-in-wails.html",
-            "title": "Parsing in Go, showing in Wails",
-            "summary": "It's an achievement. I was stuck for several days, daunted by the prospect of connecting Pigeon, which is a PEG parser generator for Go, to Wails which is my target platform. Well I succeeded! This would be probably nothing to anyone used to working with&hellip;",
-            "content_html": "<p>It's an achievement. I was stuck for several days, daunted by the prospect of connecting <a href=\"https://github.com/mna/pigeon\" target=\"_blank\" rel=\"noopener noreferrer\">Pigeon</a>, which is a PEG parser generator for Go, to <a href=\"https://wails.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Wails</a> which is my target platform.</p>\n<p>Well I succeeded!</p>\n<figure class=\"post__image\"><img loading=\"lazy\"  src=\"https://botbreeder.github.io/media/posts/11/parser-first-step.PNG\" alt=\"Screen capture of a successful parsing\" width=\"496\" height=\"492\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w\"></figure>\n<p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>\n<p>Yeah, 3 × 5 = 15... it's show time 🤩</p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-03-25T15:01:37+01:00",
-            "date_modified": "2024-03-25T15:35:33+01:00"
         }
     ]
 }

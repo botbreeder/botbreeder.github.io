@@ -3,12 +3,35 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-06-08T19:59:48+02:00</updated>
+    <updated>2024-06-27T22:45:34+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
+    <entry>
+        <title>All going down</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/all-going-down.html"/>
+        <id>https://botbreeder.github.io/all-going-down.html</id>
+
+        <updated>2024-06-27T22:45:34+02:00</updated>
+            <summary>
+                <![CDATA[
+                    It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II? That's enough for me to jump off the window. Nous assistons, impuissants, à l'institutionnalisation de&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II?<br><br>That's enough for me to jump off the window.</p>
+<p>Nous assistons, impuissants, à l'institutionnalisation de la haine, dans un pays qui soudain se révèle, montre son vrai visage, celui de l'imbécillité anonyme et lâche de millions d'électeurs à la mémoire courte. Bande de crétins capricieux, de monstres irresponsables, vous mériteriez d'être pendus, vous qui osez insulter la chose politique, et vous qui venez parodier le concept de débat national à la télévision.</p>
+<p>Mais nous ne vous pendrons pas. Car nous, citoyens réfléchis, vous sommes supérieurs.</p>
+<p>Fuck.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Back to the drawing board with a fresh stack</title>
         <author>
@@ -33,12 +56,12 @@
 <p>The new stack is like,</p>
 <ul style="list-style-type: square;">
 <li><a href="https://getuikit.com" target="_blank" rel="noopener noreferrer">UIKit</a>, in a custom dark mode that's a little bit more aggressive than the previous frontend style, griddy background, and a few cyberpunk flash colors.</li>
-<li><a href="http://github.com/cferdinandi/reef" target="_blank" rel="noopener noreferrer">Reef</a>, gives me lightweight UI reactivity,</li>
+<li><a href="https://reefjs.com/" target="_blank" rel="noopener noreferrer">Reef</a>, gives me lightweight UI reactivity,</li>
 <li><a href="https://d3js.org" target="_blank" rel="noopener noreferrer">D3</a>, will be used both to construct the new interface (more on this below), and to power the inevitable graphs and visualizations users could want.</li>
 <li><a href="https://supabase.com" target="_blank" rel="noopener noreferrer">Supabase</a>, even though the app is intended to be fully usable offline, I need online realtime capabilities, because I'm also going to use Hup for a project in my dayjob.</li>
 </ul>
 <hr>
-<p>The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and the like, to adults who are modifying the trajectory of their career, and who are not necessarily comfortable with a computer. It's ideal to see what works and what doesn't, in terms of UX design.</p>
+<p>The new interface is planned to be basically a Kanban board that feels like a spreadsheet. My dayjob is about teaching Excel, Sharepoint, Doodle, Trello, ERPs and the like, to adults who are modifying the trajectory of their career, and who are not always comfortable with a computer. It's ideal to see what works and what doesn't, in terms of UX design.</p>
 <p>But Hup is not meant for them. It's meant for me, to monitor their progression through the pedagogical material, in realtime.</p>
 <p>What problem does Hup solve? Trello doesn't do heavy math&amp;graph, Excel doesn't do the fancy cards drag'n drop, and neither of them do symbolic processing à la Prolog nor list processing à la Lisp, nor network flow-based programming. There's a hole in the universe that has the shape of Hup.</p>
 <hr>
@@ -461,30 +484,6 @@
 <p>I'm adding a new Merge operator <code>"</code>, the purpose of which is to join tables on a per value basis.</p>
 <pre><code>[ c | 1 | 2 | 3 | 3 | 4 ]</code><br><code>[ d | 5 | bar | moo mew ]</code><br><br><code>[</code><br><code>    merging c and d</code><br><code>    = c " d</code><br><code>    | 1 5</code><br><code>    | 2 bar</code><br><code>    | 3 moo mew</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code></pre>
 <p>Now I believe the list of operators should be complete.</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Parsing in Go, showing in Wails</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/parsing-in-go-showing-in-wails.html"/>
-        <id>https://botbreeder.github.io/parsing-in-go-showing-in-wails.html</id>
-
-        <updated>2024-03-25T15:01:37+01:00</updated>
-            <summary>
-                <![CDATA[
-                    It's an achievement. I was stuck for several days, daunted by the prospect of connecting Pigeon, which is a PEG parser generator for Go, to Wails which is my target platform. Well I succeeded! This would be probably nothing to anyone used to working with&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>It's an achievement. I was stuck for several days, daunted by the prospect of connecting <a href="https://github.com/mna/pigeon" target="_blank" rel="noopener noreferrer">Pigeon</a>, which is a PEG parser generator for Go, to <a href="https://wails.io/" target="_blank" rel="noopener noreferrer">Wails</a> which is my target platform.</p>
-<p>Well I succeeded!</p>
-<figure class="post__image"><img loading="lazy"  src="https://botbreeder.github.io/media/posts/11/parser-first-step.PNG" alt="Screen capture of a successful parsing" width="496" height="492" sizes="(max-width: 48em) 100vw, 768px" srcset="https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w"></figure>
-<p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>
-<p>Yeah, 3 × 5 = 15... it's show time 🤩</p>
             ]]>
         </content>
     </entry>
