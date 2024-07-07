@@ -3,34 +3,12 @@
     <title>botbreeder.github.io</title>
     <link href="https://botbreeder.github.io/feed.xml" rel="self" />
     <link href="https://botbreeder.github.io" />
-    <updated>2024-06-28T00:04:50+02:00</updated>
+    <updated>2024-06-10T11:31:08+02:00</updated>
     <author>
         <name>Julien Laguerre</name>
     </author>
     <id>https://botbreeder.github.io</id>
 
-    <entry>
-        <title>All going down</title>
-        <author>
-            <name>Julien Laguerre</name>
-        </author>
-        <link href="https://botbreeder.github.io/all-going-down.html"/>
-        <id>https://botbreeder.github.io/all-going-down.html</id>
-
-        <updated>2024-06-27T22:45:34+02:00</updated>
-            <summary>
-                <![CDATA[
-                    It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II? That's enough for me to jump off the window. Nous assistons, impuissants, à l'institutionnalisation de&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II?<br><br>That's enough for me to jump off the window.</p>
-<p>Nous assistons, impuissants, à l'institutionnalisation de la haine, dans un pays qui soudain se révèle, montre son vrai visage, celui de l'imbécillité anonyme et lâche de millions d'électeurs à la mémoire courte. Bande de crétins capricieux, de monstres irresponsables, vous mériteriez d'être pendus, vous qui osez insulter la chose politique, et vous qui venez parodier le concept de débat national à la télévision.</p>
-<p><a href="https://duckduckgo.com/?q=You%27re+Going+Down+-+Sick+Puppies+Lyrics&amp;t=ffab&amp;iar=videos&amp;iax=videos&amp;ia=videos&amp;iai=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSsOc1__b9Gw" target="_blank" rel="noopener noreferrer">#streetismine</a></p>
-            ]]>
-        </content>
-    </entry>
     <entry>
         <title>Back to the drawing board with a fresh stack</title>
         <author>
@@ -483,6 +461,30 @@
 <p>I'm adding a new Merge operator <code>"</code>, the purpose of which is to join tables on a per value basis.</p>
 <pre><code>[ c | 1 | 2 | 3 | 3 | 4 ]</code><br><code>[ d | 5 | bar | moo mew ]</code><br><br><code>[</code><br><code>    merging c and d</code><br><code>    = c " d</code><br><code>    | 1 5</code><br><code>    | 2 bar</code><br><code>    | 3 moo mew</code><br><code>    | 3</code><br><code>    | 4</code><br><code>]</code></pre>
 <p>Now I believe the list of operators should be complete.</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Parsing in Go, showing in Wails</title>
+        <author>
+            <name>Julien Laguerre</name>
+        </author>
+        <link href="https://botbreeder.github.io/parsing-in-go-showing-in-wails.html"/>
+        <id>https://botbreeder.github.io/parsing-in-go-showing-in-wails.html</id>
+
+        <updated>2024-03-25T15:01:37+01:00</updated>
+            <summary>
+                <![CDATA[
+                    It's an achievement. I was stuck for several days, daunted by the prospect of connecting Pigeon, which is a PEG parser generator for Go, to Wails which is my target platform. Well I succeeded! This would be probably nothing to anyone used to working with&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>It's an achievement. I was stuck for several days, daunted by the prospect of connecting <a href="https://github.com/mna/pigeon" target="_blank" rel="noopener noreferrer">Pigeon</a>, which is a PEG parser generator for Go, to <a href="https://wails.io/" target="_blank" rel="noopener noreferrer">Wails</a> which is my target platform.</p>
+<p>Well I succeeded!</p>
+<figure class="post__image"><img loading="lazy"  src="https://botbreeder.github.io/media/posts/11/parser-first-step.PNG" alt="Screen capture of a successful parsing" width="496" height="492" sizes="(max-width: 48em) 100vw, 768px" srcset="https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w"></figure>
+<p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>
+<p>Yeah, 3 × 5 = 15... it's show time 🤩</p>
             ]]>
         </content>
     </entry>

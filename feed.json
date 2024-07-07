@@ -10,20 +10,6 @@
     },
     "items": [
         {
-            "id": "https://botbreeder.github.io/all-going-down.html",
-            "url": "https://botbreeder.github.io/all-going-down.html",
-            "title": "All going down",
-            "summary": "It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II? That's enough for me to jump off the window. Nous assistons, impuissants, à l'institutionnalisation de&hellip;",
-            "content_html": "<p>It's funny how everything can change in the blink of an eye. My beloved country, France, is about to sink into the shame of far-right politics. After World War II?<br><br>That's enough for me to jump off the window.</p>\n<p>Nous assistons, impuissants, à l'institutionnalisation de la haine, dans un pays qui soudain se révèle, montre son vrai visage, celui de l'imbécillité anonyme et lâche de millions d'électeurs à la mémoire courte. Bande de crétins capricieux, de monstres irresponsables, vous mériteriez d'être pendus, vous qui osez insulter la chose politique, et vous qui venez parodier le concept de débat national à la télévision.</p>\n<p><a href=\"https://duckduckgo.com/?q=You%27re+Going+Down+-+Sick+Puppies+Lyrics&amp;t=ffab&amp;iar=videos&amp;iax=videos&amp;ia=videos&amp;iai=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSsOc1__b9Gw\" target=\"_blank\" rel=\"noopener noreferrer\">#streetismine</a></p>",
-            "author": {
-                "name": "Julien Laguerre"
-            },
-            "tags": [
-            ],
-            "date_published": "2024-06-27T22:45:34+02:00",
-            "date_modified": "2024-06-28T00:04:50+02:00"
-        },
-        {
             "id": "https://botbreeder.github.io/back-to-the-drawing-board.html",
             "url": "https://botbreeder.github.io/back-to-the-drawing-board.html",
             "title": "Back to the drawing board with a fresh stack",
@@ -148,6 +134,20 @@
             ],
             "date_published": "2024-04-01T15:55:02+02:00",
             "date_modified": "2024-04-01T23:43:41+02:00"
+        },
+        {
+            "id": "https://botbreeder.github.io/parsing-in-go-showing-in-wails.html",
+            "url": "https://botbreeder.github.io/parsing-in-go-showing-in-wails.html",
+            "title": "Parsing in Go, showing in Wails",
+            "summary": "It's an achievement. I was stuck for several days, daunted by the prospect of connecting Pigeon, which is a PEG parser generator for Go, to Wails which is my target platform. Well I succeeded! This would be probably nothing to anyone used to working with&hellip;",
+            "content_html": "<p>It's an achievement. I was stuck for several days, daunted by the prospect of connecting <a href=\"https://github.com/mna/pigeon\" target=\"_blank\" rel=\"noopener noreferrer\">Pigeon</a>, which is a PEG parser generator for Go, to <a href=\"https://wails.io/\" target=\"_blank\" rel=\"noopener noreferrer\">Wails</a> which is my target platform.</p>\n<p>Well I succeeded!</p>\n<figure class=\"post__image\"><img loading=\"lazy\"  src=\"https://botbreeder.github.io/media/posts/11/parser-first-step.PNG\" alt=\"Screen capture of a successful parsing\" width=\"496\" height=\"492\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xs.PNG 300w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-sm.PNG 480w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-md.PNG 768w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-lg.PNG 1024w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-xl.PNG 1360w ,https://botbreeder.github.io/media/posts/11/responsive/parser-first-step-2xl.PNG 1600w\"></figure>\n<p>This would be probably nothing to anyone used to working with Go, but I'm completely new to this. Of course I used an example grammar from the Pigeon repo, a simple math expression one, but the next step is to create &amp; flesh out a real parser for Hup. Just being able to generate the parser and to access it, is already a huge step forward for me!</p>\n<p>Yeah, 3 × 5 = 15... it's show time 🤩</p>",
+            "author": {
+                "name": "Julien Laguerre"
+            },
+            "tags": [
+            ],
+            "date_published": "2024-03-25T15:01:37+01:00",
+            "date_modified": "2024-03-25T15:35:33+01:00"
         }
     ]
 }
